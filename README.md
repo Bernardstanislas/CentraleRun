@@ -3,4 +3,4 @@ CentraleRun
 
 Third year C++ project
 
-COUCOU LOLZ
+This is my first test using GH !
