@@ -82,17 +82,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="FiAcClear.cpp" />
+    <ClCompile Include="FiAcCreateProjectile.cpp" />
+    <ClCompile Include="FiAcGenerate.cpp" />
+    <ClCompile Include="FiAcMove.cpp" />
+    <ClCompile Include="SpAcFireProjectile.cpp" />
+    <ClCompile Include="SpAcJump.cpp" />
+    <ClCompile Include="SpAcMove.cpp" />
     <ClCompile Include="SpBonus.cpp" />
-    <ClCompile Include="ClearField.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldAction.cpp" />
-    <ClCompile Include="CreateProjectile.cpp" />
-    <ClCompile Include="FireProjectile.cpp" />
-    <ClCompile Include="GenerateField.cpp" />
-    <ClCompile Include="JumpSprite.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MoveField.cpp" />
-    <ClCompile Include="MoveSprite.cpp" />
     <ClCompile Include="SpObstacle.cpp" />
     <ClCompile Include="SpPlayer.cpp" />
     <ClCompile Include="SpProjectile.cpp" />
@@ -101,16 +101,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="FiAcClear.h" />
+    <ClInclude Include="FiAcCreateProjectile.h" />
+    <ClInclude Include="FiAcGenerate.h" />
+    <ClInclude Include="FiAcMove.h" />
+    <ClInclude Include="SpAcFireProjectile.h" />
+    <ClInclude Include="SpAcJump.h" />
+    <ClInclude Include="SpAcMove.h" />
     <ClInclude Include="SpBonus.h" />
-    <ClInclude Include="ClearField.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="FieldAction.h" />
-    <ClInclude Include="CreateProjectile.h" />
-    <ClInclude Include="FireProjectile.h" />
-    <ClInclude Include="GenerateField.h" />
-    <ClInclude Include="JumpSprite.h" />
-    <ClInclude Include="MoveField.h" />
-    <ClInclude Include="MoveSprite.h" />
     <ClInclude Include="SpObstacle.h" />
     <ClInclude Include="SpPlayer.h" />
     <ClInclude Include="SpProjectile.h" />

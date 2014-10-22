@@ -63,27 +63,6 @@
     <ClCompile Include="SpriteAction.cpp">
       <Filter>Fichiers sources\Classes\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="MoveField.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
-    <ClCompile Include="GenerateField.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
-    <ClCompile Include="ClearField.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
-    <ClCompile Include="JumpSprite.cpp">
-      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveSprite.cpp">
-      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProjectile.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
-    <ClCompile Include="FireProjectile.cpp">
-      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
-    </ClCompile>
     <ClCompile Include="SpProjectile.cpp">
       <Filter>Fichiers sources\Classes\Sprites</Filter>
     </ClCompile>
@@ -95,6 +74,27 @@
     </ClCompile>
     <ClCompile Include="SpBonus.cpp">
       <Filter>Fichiers sources\Classes\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="FiAcCreateProjectile.cpp">
+      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
+    </ClCompile>
+    <ClCompile Include="FiAcClear.cpp">
+      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
+    </ClCompile>
+    <ClCompile Include="FiAcGenerate.cpp">
+      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
+    </ClCompile>
+    <ClCompile Include="FiAcMove.cpp">
+      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
+    </ClCompile>
+    <ClCompile Include="SpAcFireProjectile.cpp">
+      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
+    </ClCompile>
+    <ClCompile Include="SpAcJump.cpp">
+      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
+    </ClCompile>
+    <ClCompile Include="SpAcMove.cpp">
+      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,27 +110,6 @@
     <ClInclude Include="SpriteAction.h">
       <Filter>Fichiers d%27en-tête\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="MoveField.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="GenerateField.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="ClearField.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="JumpSprite.h">
-      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveSprite.h">
-      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
-    </ClInclude>
-    <ClInclude Include="CreateProjectile.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="FireProjectile.h">
-      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
-    </ClInclude>
     <ClInclude Include="SpBonus.h">
       <Filter>Fichiers d%27en-tête\Sprites</Filter>
     </ClInclude>
@@ -145,6 +124,27 @@
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>Fichiers d%27en-tête\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="FiAcCreateProjectile.h">
+      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
+    </ClInclude>
+    <ClInclude Include="FiAcClear.h">
+      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
+    </ClInclude>
+    <ClInclude Include="FiAcGenerate.h">
+      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
+    </ClInclude>
+    <ClInclude Include="FiAcMove.h">
+      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
+    </ClInclude>
+    <ClInclude Include="SpAcJump.h">
+      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
+    </ClInclude>
+    <ClInclude Include="SpAcFireProjectile.h">
+      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
+    </ClInclude>
+    <ClInclude Include="SpAcMove.h">
+      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
