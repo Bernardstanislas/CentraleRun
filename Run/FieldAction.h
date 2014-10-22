@@ -3,13 +3,12 @@
 #include "Action.h"
 #include "Field.h"
 
-class FieldAction :
+class SpAcFieldAction :
 	public Action
 {
 protected:
 	Field source;
 public:
-	FieldAction(int duration, Field &source);
-	~FieldAction();
+	SpAcFieldAction(int duration, Field &source);
+	~SpAcFieldAction();
 };
-

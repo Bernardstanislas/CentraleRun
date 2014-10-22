@@ -1,10 +1,9 @@
 #pragma once
 #include "SpriteAction.h"
-class JumpSprite :
+class SpAcJump :
 	public SpriteAction
 {
 public:
-	JumpSprite();
-	~JumpSprite();
+	SpAcJump();
+	~SpAcJump();
 };
-
