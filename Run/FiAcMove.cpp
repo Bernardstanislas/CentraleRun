@@ -9,3 +9,8 @@ FiAcMove::FiAcMove()
 FiAcMove::~FiAcMove()
 {
 }
+
+void FiAcMove::execute()
+{
+
+}

@@ -9,3 +9,8 @@ SpAcFireProjectile::SpAcFireProjectile()
 SpAcFireProjectile::~SpAcFireProjectile()
 {
 }
+
+void SpAcFireProjectile::execute()
+{
+
+}

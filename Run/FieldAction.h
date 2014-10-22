@@ -7,9 +7,9 @@ class FieldAction :
 	public Action
 {
 protected:
-	virtual Field target;
-	virtual int duration;
-	virtual int elapsedTime;
+	Field target;
+	int duration;
+	int elapsedTime;
 public:
 	virtual void execute() = 0;
 };

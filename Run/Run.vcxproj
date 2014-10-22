@@ -91,13 +91,11 @@
     <ClCompile Include="SpAcMove.cpp" />
     <ClCompile Include="SpBonus.cpp" />
     <ClCompile Include="Field.cpp" />
-    <ClCompile Include="FieldAction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SpObstacle.cpp" />
     <ClCompile Include="SpPlayer.cpp" />
     <ClCompile Include="SpProjectile.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />

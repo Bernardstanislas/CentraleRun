@@ -9,3 +9,8 @@ SpAcJump::SpAcJump()
 SpAcJump::~SpAcJump()
 {
 }
+
+void SpAcJump::execute()
+{
+
+}

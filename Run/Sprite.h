@@ -16,9 +16,6 @@ protected:
 	int height; // blocks
 	vector<unique_ptr<Action>> actions;
 public:
-	Sprite();
-	Sprite(int width, int height);
-	~Sprite();
 	void setPosition(int x, int y);
 	pair<int, int> getPosition();
 	void setSize(int width, int height);

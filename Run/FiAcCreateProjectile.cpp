@@ -9,3 +9,8 @@ FiAcCreateProjectile::FiAcCreateProjectile()
 FiAcCreateProjectile::~FiAcCreateProjectile()
 {
 }
+
+void FiAcCreateProjectile::execute()
+{
+
+}

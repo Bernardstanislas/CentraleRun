@@ -51,18 +51,6 @@
     <ClCompile Include="Field.cpp">
       <Filter>Fichiers sources\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Fichiers sources\Classes\Sprites</Filter>
-    </ClCompile>
-    <ClCompile Include="Action.cpp">
-      <Filter>Fichiers sources\Classes\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="FieldAction.cpp">
-      <Filter>Fichiers sources\Classes\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteAction.cpp">
-      <Filter>Fichiers sources\Classes\Actions</Filter>
-    </ClCompile>
     <ClCompile Include="SpProjectile.cpp">
       <Filter>Fichiers sources\Classes\Sprites</Filter>
     </ClCompile>
@@ -96,13 +84,16 @@
     <ClCompile Include="SpAcMove.cpp">
       <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Fichiers sources\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>Fichiers sources\Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Field.h">
       <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Action.h">
-      <Filter>Fichiers d%27en-tête\Actions</Filter>
     </ClInclude>
     <ClInclude Include="FieldAction.h">
       <Filter>Fichiers d%27en-tête\Actions</Filter>
@@ -120,9 +111,6 @@
       <Filter>Fichiers d%27en-tête\Sprites</Filter>
     </ClInclude>
     <ClInclude Include="SpProjectile.h">
-      <Filter>Fichiers d%27en-tête\Sprites</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
       <Filter>Fichiers d%27en-tête\Sprites</Filter>
     </ClInclude>
     <ClInclude Include="FiAcCreateProjectile.h">
@@ -145,6 +133,12 @@
     </ClInclude>
     <ClInclude Include="SpAcMove.h">
       <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,13 +1,13 @@
 #pragma once
 #include "SpriteAction.h"
-class FireProjectile :
+class SpAcFireProjectile :
 	public SpriteAction
 {
 protected:
 	int duration;
 	int elapsedTime;
 public:
-	FireProjectile();
-	~FireProjectile();
+	SpAcFireProjectile();
+	~SpAcFireProjectile();
 	void execute();
 };

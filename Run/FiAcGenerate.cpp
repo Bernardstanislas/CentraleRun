@@ -9,3 +9,8 @@ FiAcGenerate::FiAcGenerate()
 FiAcGenerate::~FiAcGenerate()
 {
 }
+
+void FiAcGenerate::execute()
+{
+
+}

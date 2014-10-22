@@ -9,3 +9,8 @@ SpAcMove::SpAcMove()
 SpAcMove::~SpAcMove()
 {
 }
+
+void SpAcMove::execute()
+{
+
+}
