@@ -1,10 +1,10 @@
 #pragma once
 #include "Sprite.h"
-class Projectile :
+class SpProjectile :
 	public Sprite
 {
 public:
-	Projectile();
-	~Projectile();
+	SpProjectile();
+	~SpProjectile();
 };
 

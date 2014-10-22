@@ -1,10 +1,10 @@
 #pragma once
 #include "Sprite.h"
-class Bonus :
+class SpBonus :
 	public Sprite
 {
 public:
-	Bonus();
-	~Bonus();
+	SpBonus();
+	~SpBonus();
 };
 

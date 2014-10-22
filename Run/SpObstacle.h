@@ -1,12 +1,12 @@
 #pragma once
 #include "Sprite.h"
-class Player :
+class SpObstacle :
 	public Sprite
 {
 protected:
 	int hp;
 public:
-	Player();
-	~Player();
+	SpObstacle();
+	~SpObstacle();
 };
 
