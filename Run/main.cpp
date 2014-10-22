@@ -3,18 +3,18 @@
 
 int main()
 {
-	// création de la fenêtre
+	// crï¿½ation de la fenï¿½tre
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "Run");
 
-	
-	// on fait tourner le programme tant que la fenêtre n'a pas été fermée
+
+	// on fait tourner le programme tant que la fenï¿½tre n'a pas ï¿½tï¿½ fermï¿½e
 	while (window.isOpen())
 	{
-		// on traite tous les évènements de la fenêtre qui ont été générés depuis la dernière itération de la boucle
+		// on traite tous les ï¿½vï¿½nements de la fenï¿½tre qui ont ï¿½tï¿½ gï¿½nï¿½rï¿½s depuis la derniï¿½re itï¿½ration de la boucle
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			// fermeture de la fenêtre lorsque l'utilisateur le souhaite
+			// fermeture de la fenï¿½tre lorsque l'utilisateur le souhaite
 			if (event.type == sf::Event::Closed ||
 				(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape))
 				window.close();

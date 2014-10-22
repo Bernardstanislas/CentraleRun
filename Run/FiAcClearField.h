@@ -1,10 +1,9 @@
 #pragma once
 #include "FieldAction.h"
-class MoveField :
+class FiAcClearField :
 	public FieldAction
 {
 public:
-	MoveField();
-	~MoveField();
+	FiAcClearField();
+	~FiAcClearField();
 };
-
