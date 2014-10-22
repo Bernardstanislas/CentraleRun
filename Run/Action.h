@@ -3,12 +3,9 @@
 class Action
 {
 protected:
-	int duration;
-	int elapsedTime;
+	virtual int duration;
+	virtual int elapsedTime;
 public:
-	Action(int duration);
-	~Action();
-	void execute();
+	virtual void execute() = 0;
 	bool isOver();
 };
-

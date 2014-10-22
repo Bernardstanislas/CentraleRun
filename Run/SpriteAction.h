@@ -7,9 +7,9 @@ class SpriteAction :
 	public Action
 {
 protected:
-	Sprite source;
+	virtual Sprite source;
+	virtual int duration;
+	virtual int elapsedTime;
 public:
-	SpriteAction(int duration, Sprite &source);
-	~SpriteAction();
+	virtual void execute() = 0;
 };
-
