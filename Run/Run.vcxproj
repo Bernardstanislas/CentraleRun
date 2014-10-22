@@ -82,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
-    <ClCompile Include="Bonus.cpp" />
+    <ClCompile Include="SpBonus.cpp" />
     <ClCompile Include="ClearField.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldAction.cpp" />
@@ -93,15 +93,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MoveField.cpp" />
     <ClCompile Include="MoveSprite.cpp" />
-    <ClCompile Include="Obstacle.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="SpObstacle.cpp" />
+    <ClCompile Include="SpPlayer.cpp" />
+    <ClCompile Include="SpProjectile.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
-    <ClInclude Include="Bonus.h" />
+    <ClInclude Include="SpBonus.h" />
     <ClInclude Include="ClearField.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="FieldAction.h" />
@@ -111,9 +111,9 @@
     <ClInclude Include="JumpSprite.h" />
     <ClInclude Include="MoveField.h" />
     <ClInclude Include="MoveSprite.h" />
-    <ClInclude Include="Obstacle.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="SpObstacle.h" />
+    <ClInclude Include="SpPlayer.h" />
+    <ClInclude Include="SpProjectile.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteAction.h" />
   </ItemGroup>

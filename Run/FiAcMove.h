@@ -1,9 +1,9 @@
 #pragma once
 #include "FieldAction.h"
-class FiAcGenerateField :
+class FiAcMove :
 	public FieldAction
 {
 public:
-	FiAcGenerateField();
-	~FiAcGenerateField();
+	FiAcMove();
+	~FiAcMove();
 };
