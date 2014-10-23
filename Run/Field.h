@@ -10,7 +10,6 @@ class Field
 private:
 	vector<shared_ptr<Sprite>> sprites; // Shared because it's shared with the sprite actions
 	vector<unique_ptr<Action>> actions;
-	// Collisions à ajouter : map?
 public:
 	Field();
 	~Field();
@@ -23,4 +22,3 @@ public:
 	void checkCollisions();
 	int updateScore();
 };
-
