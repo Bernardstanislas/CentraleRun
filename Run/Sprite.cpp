@@ -1,3 +1,4 @@
+
 #include "Sprite.h"
 
 void Sprite::setPosition(int x, int y)

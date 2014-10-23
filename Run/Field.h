@@ -11,7 +11,10 @@ class Field
 private:
 	vector<shared_ptr<Sprite>> sprites; // Shared because it's shared with the sprite actions
 	vector<unique_ptr<Action>> actions;
+<<<<<<< HEAD
 	CollisionHandler *collisionHandler;
+=======
+>>>>>>> origin/master
 public:
 	Field();
 	~Field();
@@ -24,4 +27,3 @@ public:
 	void executeCollisions();
 	int updateScore();
 };
-
