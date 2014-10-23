@@ -30,7 +30,7 @@ void Field::executeSpriteActions()
 
 }
 
-void Field::checkCollisions()
+void Field::executeCollisions()
 {
 
 }

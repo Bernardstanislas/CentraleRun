@@ -2,6 +2,7 @@
 
 #include "Sprite.h"
 #include "Action.h"
+#include "CollisionHandler.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class Field
 private:
 	vector<shared_ptr<Sprite>> sprites; // Shared because it's shared with the sprite actions
 	vector<unique_ptr<Action>> actions;
-	// Collisions à ajouter : map?
+	CollisionHandler *collisionHandler;
 public:
 	Field();
 	~Field();
@@ -20,7 +21,7 @@ public:
 
 	void executeFieldActions();
 	void executeSpriteActions();
-	void checkCollisions();
+	void executeCollisions();
 	int updateScore();
 };
 

@@ -82,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="FiAcClear.cpp" />
     <ClCompile Include="FiAcCreateProjectile.cpp" />
     <ClCompile Include="FiAcGenerate.cpp" />
@@ -96,9 +98,12 @@
     <ClCompile Include="SpPlayer.cpp" />
     <ClCompile Include="SpProjectile.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteType.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="FiAcClear.h" />
     <ClInclude Include="FiAcCreateProjectile.h" />
     <ClInclude Include="FiAcGenerate.h" />
@@ -114,6 +119,7 @@
     <ClInclude Include="SpProjectile.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteAction.h" />
+    <ClInclude Include="SpriteType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
