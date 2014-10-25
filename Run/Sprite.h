@@ -10,16 +10,17 @@ using namespace std;
 class Sprite
 {
 protected:
-	int x; // block
-	int y; // block
-	int width; // blocks
-	int height; // blocks
+	int x;
+	int y;
+	int width;
+	int height;
 	// !!!! Compilation error here!
-	//vector<unique_ptr<Action>> actions;
+	// vector<unique_ptr<Action>> actions;
 	// !!!!
-	int state;
+	int state; // Is interpreted for now as a rectangle color. 0 for blue, 1 for red and 2 for green.
 public:
 	Sprite();
+	// Temporary Sprite constructor for testing purposes, won't be used as such.
 	Sprite(int x, int y, int width, int height, int state);
 	void setPosition(int x, int y);
 	pair<int, int> getPosition();

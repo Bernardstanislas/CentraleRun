@@ -18,6 +18,7 @@ View::~View()
 {
 }
 
+// Draw all sprites from the field as colored rectangles.
 void View::draw()
 {
 	context.clear(sf::Color::Black);
@@ -31,6 +32,7 @@ void View::draw()
 		float width = (float)size.first*blockSize;
 		float height = (float)size.second*blockSize;
 
+		// Our block origin is bottom-left corner and SMFL's is top-left.
 		float x = (float)pos.first*blockSize;
 		float y = context.getSize().y - (float)pos.second*blockSize - height;
 
