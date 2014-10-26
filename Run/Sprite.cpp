@@ -42,7 +42,7 @@ int Sprite::getState()
 	return this->state;
 }
 
-void Sprite::addAction(Action &action)
+void Sprite::addAction(unique_ptr<Action> &action)
 {
 
 }

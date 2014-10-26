@@ -4,9 +4,9 @@
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
-	Sprite sprite1 = Sprite(10, 10, 10, 10, 0);
-	Sprite sprite2 = Sprite(30, 20, 5, 5, 1);
-	Sprite sprite3 = Sprite(50, 50, 2, 5, 2);
+	auto sprite1 = make_shared<Sprite>(10, 10, 10, 10, 0);
+	auto sprite2 = make_shared<Sprite>(30, 20, 5, 5, 1);
+	auto sprite3 = make_shared<Sprite>(50, 50, 2, 5, 2);
 
 	field.addSprite(sprite1);
 	field.addSprite(sprite2);

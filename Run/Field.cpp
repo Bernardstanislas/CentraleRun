@@ -15,12 +15,12 @@ vector<shared_ptr<Sprite>> Field::getSprites()
 	return this->sprites;
 }
 
-void Field::addSprite(Sprite &sprite)
+void Field::addSprite(shared_ptr<Sprite> &sprite)
 {
-	this->sprites.push_back(make_shared<Sprite>(sprite));
+	this->sprites.push_back(sprite);
 }
 
-void Field::addAction(Action &action)
+void Field::addAction(unique_ptr<Action> &action)
 {
 
 }

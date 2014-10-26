@@ -7,7 +7,7 @@ class FieldAction :
 	public Action
 {
 protected:
-	Field target;
+	Field *target;
 	int duration;
 	int elapsedTime;
 public:

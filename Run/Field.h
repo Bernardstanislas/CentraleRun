@@ -19,8 +19,8 @@ public:
 
 	vector<shared_ptr<Sprite>> getSprites();
 
-	void addSprite(Sprite &sprite);
-	void addAction(Action &action);
+	void addSprite(shared_ptr<Sprite> &sprite);
+	void addAction(unique_ptr<Action> &action);
 
 	void executeFieldActions();
 	void executeSpriteActions();

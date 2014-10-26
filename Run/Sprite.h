@@ -14,9 +14,7 @@ protected:
 	int y;
 	int width;
 	int height;
-	// !!!! Compilation error here!
-	// vector<unique_ptr<Action>> actions;
-	// !!!!
+	vector<unique_ptr<Action>> actions;
 	int state; // Is interpreted for now as a rectangle color. 0 for blue, 1 for red and 2 for green.
 public:
 	Sprite();
@@ -28,7 +26,7 @@ public:
 	pair<int, int> getSize();
 	void setState(int state);
 	int getState();
-	void addAction(Action &action);
+	void addAction(unique_ptr<Action> &action);
 	void deleteAction(unique_ptr<Action> action);
 	void executeActions();
 };
