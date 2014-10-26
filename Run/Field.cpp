@@ -10,14 +10,15 @@ Field::~Field()
 
 }
 
-vector<shared_ptr<Sprite>> Field::getSprites()
+vector<unique_ptr<Sprite>> const& Field::getSprites() const
 {
-	return this->sprites;
+	return sprites;
 }
 
-void Field::addSprite(shared_ptr<Sprite> &sprite)
-{
-	this->sprites.push_back(sprite);
+void Field::addSprite(unique_ptr<Sprite> &sprite)
+{ 
+	// move gives ownership of the unique_ptr to the sprites vector
+	this->sprites.push_back(move(sprite));
 }
 
 void Field::addAction(unique_ptr<Action> &action)

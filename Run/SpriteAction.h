@@ -7,7 +7,7 @@ class SpriteAction :
 	public Action
 {
 protected:
-	shared_ptr<Sprite> source;
+	Sprite *source;
 	int duration;
 	int elapsedTime;
 public:

@@ -9,7 +9,7 @@ using namespace std;
 class Field
 {
 private:
-	vector<shared_ptr<Sprite>> sprites; // Shared because it's shared with the sprite actions
+	vector<unique_ptr<Sprite>> sprites;
 	vector<unique_ptr<Action>> actions;
 	CollisionHandler *collisionHandler;
 
@@ -17,9 +17,11 @@ public:
 	Field();
 	~Field();
 
-	vector<shared_ptr<Sprite>> getSprites();
+	// return in C++ copy the returned object, so we need to return a reference.
+	// const's are just there for clarity
+	vector<unique_ptr<Sprite>> const& getSprites() const;
 
-	void addSprite(shared_ptr<Sprite> &sprite);
+	void addSprite(unique_ptr<Sprite> &sprite);
 	void addAction(unique_ptr<Action> &action);
 
 	void executeFieldActions();

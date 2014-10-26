@@ -4,9 +4,9 @@
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
-	auto sprite1 = make_shared<Sprite>(10, 10, 10, 10, 0);
-	auto sprite2 = make_shared<Sprite>(30, 20, 5, 5, 1);
-	auto sprite3 = make_shared<Sprite>(50, 50, 2, 5, 2);
+	auto sprite1 = make_unique<Sprite>(10, 10, 10, 10, 0);
+	auto sprite2 = make_unique<Sprite>(30, 20, 5, 5, 1);
+	auto sprite3 = make_unique<Sprite>(50, 50, 2, 5, 2);
 
 	field.addSprite(sprite1);
 	field.addSprite(sprite2);
@@ -23,7 +23,8 @@ void View::draw()
 {
 	context.clear(sf::Color::Black);
 
-	for (auto sprite : field.getSprites())
+	// Iterators copy the objects in vector, so we also need to iterate through references
+	for (auto const& sprite : field.getSprites())
 	{
 		pair<int, int> pos = sprite.get()->getPosition();
 		pair<int, int> size = sprite.get()->getSize();
