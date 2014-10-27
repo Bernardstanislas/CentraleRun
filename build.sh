@@ -9,4 +9,4 @@ echo "Preparing the build..."
 echo "Installing SFML..."
 sudo apt-get install libsfml-dev
 echo "Building the solution..."
-g++ -std=gnu++11 Run/*.cpp -lsfml-graphics -lsfml-window -lsfml-system -o out
+g++ -std=c++0x Run/*.cpp -lsfml-graphics -lsfml-window -lsfml-system -o out
