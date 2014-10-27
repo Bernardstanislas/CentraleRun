@@ -10,6 +10,6 @@ notifications:
   email:
     on_success: change
     on_failure: always
-# install:
-#   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8 && export CXX="g++-4.8"; fi
-script: ./build.sh
+install:
+  - sh ./install.sh
+script: sh ./build.sh

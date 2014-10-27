@@ -4,9 +4,9 @@
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
-	auto sprite1 = make_unique<Sprite>(10, 10, 10, 10, 0);
-	auto sprite2 = make_unique<Sprite>(30, 20, 5, 5, 1);
-	auto sprite3 = make_unique<Sprite>(50, 50, 2, 5, 2);
+	auto sprite1 = unique_ptr<Sprite>(new Sprite(10, 10, 10, 10, 0));
+	auto sprite2 = unique_ptr<Sprite>(new Sprite(30, 20, 5, 5, 1));
+	auto sprite3 = unique_ptr<Sprite>(new Sprite(50, 50, 2, 5, 2));
 
 	field.addSprite(sprite1);
 	field.addSprite(sprite2);
@@ -29,7 +29,7 @@ void View::draw()
 		pair<int, int> pos = sprite->getPosition();
 		pair<int, int> size = sprite->getSize();
 		int state = sprite->getState();
-		
+
 		float width = (float)size.first*blockSize;
 		float height = (float)size.second*blockSize;
 
