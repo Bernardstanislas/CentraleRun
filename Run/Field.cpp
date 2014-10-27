@@ -19,6 +19,7 @@ void Field::addSprite(unique_ptr<Sprite> &sprite)
 { 
 	// move gives ownership of the unique_ptr to the sprites vector
 	this->sprites.push_back(move(sprite));
+	// careful with always pushing back new sprites. cf Thierry.
 }
 
 void Field::addAction(unique_ptr<Action> &action)

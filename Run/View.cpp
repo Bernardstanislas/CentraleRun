@@ -26,9 +26,9 @@ void View::draw()
 	// Iterators copy the objects in vector, so we also need to iterate through references
 	for (auto const& sprite : field.getSprites())
 	{
-		pair<int, int> pos = sprite.get()->getPosition();
-		pair<int, int> size = sprite.get()->getSize();
-		int state = sprite.get()->getState();
+		pair<int, int> pos = sprite->getPosition();
+		pair<int, int> size = sprite->getSize();
+		int state = sprite->getState();
 		
 		float width = (float)size.first*blockSize;
 		float height = (float)size.second*blockSize;
