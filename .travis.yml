@@ -1,8 +1,6 @@
 language: cpp
 compiler:
   - gcc
-before_install:
-  - sh build.sh
 notifications:
   recipients:
     - stanislas.bernard@student.ecp.fr
@@ -12,7 +10,6 @@ notifications:
   email:
     on_success: change
     on_failure: always
-env:
-  - RVM=2.0.0 LANG="en_US.UTF-8"
-os:
-  - linux
+install:
+  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8 && export CXX="g++-4.8"; fi
+script: ./build.sh
