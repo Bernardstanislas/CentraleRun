@@ -5,7 +5,10 @@ before_install:
   - sh build.sh
 notifications:
   recipients:
-    - bernardstanislas@gmail.com
+    - stanislas.bernard@student.ecp.fr
+    - robin.moisson@student.ecp.fr
+    - damien.frikha@student.ecp.fr
+    - thierry.colsenet@student.ecp.fr
   email:
     on_success: change
     on_failure: always
