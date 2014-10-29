@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Sprite.h"
-#include "Action.h"
 #include "CollisionHandler.h"
+#include "FieldAction.h"
 
 using namespace std;
 
@@ -10,7 +10,7 @@ class Field
 {
 private:
 	vector<unique_ptr<Sprite>> sprites;
-	vector<unique_ptr<Action>> actions;
+	vector<unique_ptr<FieldAction>> actions;
 	CollisionHandler *collisionHandler;
 
 public:
@@ -22,7 +22,9 @@ public:
 	vector<unique_ptr<Sprite>> const& getSprites() const;
 
 	void addSprite(unique_ptr<Sprite> &sprite);
-	void addAction(unique_ptr<Action> &action);
+	void deleteSprite(int position);
+	void addAction(unique_ptr<FieldAction> &action);
+	void deleteAction(int position);
 
 	void executeFieldActions();
 	void executeSpriteActions();
