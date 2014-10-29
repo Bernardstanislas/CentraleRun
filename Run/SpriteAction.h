@@ -1,7 +1,9 @@
 #pragma once
 
 #include "Action.h"
-#include "Sprite.h"
+#include "FieldAction.h"
+
+class Sprite;
 
 class SpriteAction :
 	public Action

@@ -42,12 +42,12 @@ int Sprite::getState()
 	return this->state;
 }
 
-void Sprite::addAction(unique_ptr<Action> &action)
+void Sprite::addAction(unique_ptr<SpriteAction> &action)
 {
 
 }
 
-void Sprite::deleteAction(unique_ptr<Action> action)
+void Sprite::deleteAction(int position)
 {
 
 }
@@ -55,4 +55,9 @@ void Sprite::deleteAction(unique_ptr<Action> action)
 void Sprite::executeActions()
 {
 
+}
+
+vector<unique_ptr<SpriteAction>> const& Sprite::getActions() const
+{
+	return actions;
 }
