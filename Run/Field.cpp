@@ -1,15 +1,5 @@
 #include "Field.h"
 
-Field::Field()
-{
-
-}
-
-Field::~Field()
-{
-
-}
-
 vector<unique_ptr<Sprite>> const& Field::getSprites() const
 {
 	return sprites;
