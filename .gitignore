@@ -125,7 +125,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
@@ -235,12 +235,4 @@ $RECYCLE.BIN/
 
 *.xcworkspacedata
 
-Centrale Run/Centrale Run/Centrale_Run.1
-
-Centrale Run/Centrale Run.xcodeproj/xcuserdata/stan.xcuserdatad/xcschemes/Centrale Run.xcscheme
-
-Centrale Run/Centrale Run.xcodeproj/project.xcworkspace/xcuserdata/stan.xcuserdatad/UserInterfaceState.xcuserstate
-
-Centrale Run/Centrale Run.xcodeproj/project.xcworkspace/xcshareddata/Centrale Run.xccheckout
-
-Centrale Run/Centrale Run.xcodeproj/xcuserdata/stan.xcuserdatad/xcschemes/xcschememanagement.plist
+build_mac.sh
