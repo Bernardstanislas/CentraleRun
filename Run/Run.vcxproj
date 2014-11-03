@@ -88,6 +88,7 @@
     <ClCompile Include="FiAcCreateProjectile.cpp" />
     <ClCompile Include="FiAcGenerate.cpp" />
     <ClCompile Include="FiAcMove.cpp" />
+    <ClCompile Include="FieldAction.cpp" />
     <ClCompile Include="SpAcFireProjectile.cpp" />
     <ClCompile Include="SpAcJump.cpp" />
     <ClCompile Include="SpAcMove.cpp" />

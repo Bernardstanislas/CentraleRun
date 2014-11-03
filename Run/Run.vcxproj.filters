@@ -105,6 +105,9 @@
     <ClCompile Include="SpriteAction.cpp">
       <Filter>Fichiers sources\Classes\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="FieldAction.cpp">
+      <Filter>Fichiers sources\Classes\Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Field.h">

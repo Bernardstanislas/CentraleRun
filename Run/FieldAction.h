@@ -13,4 +13,5 @@ protected:
 	int elapsedTime;
 public:
 	virtual void execute() = 0;
+	void setTarget(Field* target);
 };
