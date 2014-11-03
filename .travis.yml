@@ -12,4 +12,6 @@ notifications:
     on_failure: always
 install:
   - sh ./install.sh
-script: sh ./build.sh
+script:
+  - sh ./unitTests.sh
+  - sh ./build.sh

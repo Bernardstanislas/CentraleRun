@@ -2,8 +2,8 @@
 
 #include <string>
 
-class SpriteType 
-{	
+class SpriteType
+{
 public:
 	enum class Type {
 		PLAYER,
@@ -11,6 +11,5 @@ public:
 		PROJECTILE,
 		BONUS
 	};
-	Type getType(std::string type);
+	static Type getType(std::string type);
 };
-

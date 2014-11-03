@@ -5,22 +5,19 @@
 
 using namespace std;
 
+typedef pair<SpriteType::Type, SpriteType::Type> ColliderKey;
+typedef map<ColliderKey, shared_ptr<Collider>> ColliderMap;
+
 class CollisionHandler
 {
 private:
-	static CollisionHandler* instance;
-	map<pair<SpriteType, SpriteType>, shared_ptr<Collider>> associationMap;
+	ColliderMap associationMap;
 	vector<shared_ptr<Collider>> knownColliders;
+	shared_ptr<Collider> getCollider(Sprite sp1, Sprite sp2);
+	SpriteType::Type getSpriteType(Sprite sp);
+public:
 	CollisionHandler();
 	~CollisionHandler();
-public:
-	static CollisionHandler* Instance()
-	{
-		if (NULL == instance)
-			instance = new CollisionHandler();
-
-		return instance;
-	};
 	void executeCollider(Sprite sp1, Sprite sp2);
 };
 

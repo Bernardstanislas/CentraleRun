@@ -23,7 +23,7 @@ public:
 	pair<int, int> getSize();
 	void setState(int state);
 	int getState();
-	void addAction(unique_ptr<SpriteAction> &action);
+	void addAction(unique_ptr<SpriteAction> action);
 	void deleteAction(int position);
 	void executeActions();
 	vector<unique_ptr<SpriteAction>> const& getActions() const;

@@ -11,7 +11,7 @@ class Field
 private:
 	vector<unique_ptr<Sprite>> sprites;
 	vector<unique_ptr<FieldAction>> actions;
-	CollisionHandler *collisionHandler;
+	unique_ptr<CollisionHandler> collisionHandler;
 
 public:
 	// return in C++ copy the returned object, so we need to return a reference.
