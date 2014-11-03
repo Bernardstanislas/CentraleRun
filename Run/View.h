@@ -1,6 +1,6 @@
 #pragma once
 
-#define BLOCKSIZE 10
+#define BLOCKSIZE 30
 
 #include <SFML/Graphics.hpp>
 #include "Field.h"

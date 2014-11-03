@@ -1,13 +1,17 @@
 #include "View.h"
+#include "SpPlayer.h"
 #include "Sprite.h"
+#include "SpObstacle.h"
 
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
-	auto sprite1 = unique_ptr<Sprite>(new Sprite(10, 10, 10, 10, 0));
-	auto sprite2 = unique_ptr<Sprite>(new Sprite(30, 20, 5, 5, 1));
-	auto sprite3 = unique_ptr<Sprite>(new Sprite(50, 50, 2, 5, 2));
+	unique_ptr<Sprite> player = unique_ptr<SpPlayer>(new SpPlayer());
+	unique_ptr<Sprite> sprite1 = unique_ptr<SpObstacle>(new SpObstacle(3, 3, 6, 1));
+	unique_ptr<Sprite> sprite2 = unique_ptr<SpObstacle>(new SpObstacle(2, 2, 8, 2));
+	unique_ptr<Sprite> sprite3 = unique_ptr<SpObstacle>(new SpObstacle(5, 2, 10, 0));
 
+	field.addSprite(player);
 	field.addSprite(sprite1);
 	field.addSprite(sprite2);
 	field.addSprite(sprite3);
