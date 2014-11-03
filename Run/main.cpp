@@ -23,7 +23,7 @@ int main()
 		// Redraw and display current frame
 		mainView.draw();
 		window.display();
-		sf::sleep(sf::seconds(.1));
+		sf::sleep(sf::seconds(.1f));
 	}
 	return 0;
 }

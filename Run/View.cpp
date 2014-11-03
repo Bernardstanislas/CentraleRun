@@ -15,7 +15,7 @@ View::View(sf::RenderWindow &context) : context(context)
 	
 	unique_ptr<Sprite> proj = unique_ptr<SpProjectile>(new SpProjectile(0, 10));
 	unique_ptr<SpriteAction> move = unique_ptr<SpAcMove>(new SpAcMove(1));
-	proj->addAction(move);
+	proj->addAction(std::move(move));
 
 	field.addSprite(player);
 	field.addSprite(sprite1);
