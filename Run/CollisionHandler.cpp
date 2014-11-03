@@ -2,6 +2,7 @@
 #include "SpriteType.h"
 #include <typeinfo>
 
+
 CollisionHandler::CollisionHandler()
 {
   knownColliders = vector<shared_ptr<Collider>>();
@@ -19,8 +20,8 @@ void CollisionHandler::executeCollider(Sprite sp1, Sprite sp2)
 };
 
 shared_ptr<Collider> CollisionHandler::getCollider(Sprite sp1, Sprite sp2) {
-  SpriteType type1 = this->getSpriteType(sp1);
-  SpriteType type2 = this->getSpriteType(sp2);
+  SpriteType::Type type1 = this->getSpriteType(sp1);
+  SpriteType::Type type2 = this->getSpriteType(sp2);
   ColliderKey pair1 (type1, type2);
   ColliderKey pair2 (type2, type1);
   ColliderMap::iterator it;
@@ -37,7 +38,7 @@ shared_ptr<Collider> CollisionHandler::getCollider(Sprite sp1, Sprite sp2) {
   }
 };
 
-SpriteType::Type getSpriteType(Sprite sp) {
+SpriteType::Type CollisionHandler::getSpriteType(Sprite sp) {
   string sType = typeid(sp).name();
   return SpriteType::getType(sType);
 };
