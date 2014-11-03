@@ -4,8 +4,3 @@
 SpBonus::SpBonus()
 {
 }
-
-
-SpBonus::~SpBonus()
-{
-}

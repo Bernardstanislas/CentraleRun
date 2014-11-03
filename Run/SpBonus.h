@@ -5,6 +5,5 @@ class SpBonus :
 {
 public:
 	SpBonus();
-	~SpBonus();
 };
 

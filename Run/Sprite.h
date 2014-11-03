@@ -17,9 +17,6 @@ protected:
 	vector<unique_ptr<SpriteAction>> actions;
 	int state; // Is interpreted for now as a rectangle color. 0 for blue, 1 for red and 2 for green.
 public:
-	Sprite();
-	// Temporary Sprite constructor for testing purposes, won't be used as such.
-	Sprite(int x, int y, int width, int height, int state);
 	void setPosition(int x, int y);
 	pair<int, int> getPosition();
 	void setSize(int width, int height);

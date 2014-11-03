@@ -1,15 +1,5 @@
 #include "Sprite.h"
 
-Sprite::Sprite()
-{
-
-}
-
-Sprite::Sprite(int x, int y, int width, int height, int state) : x(x), y(y), width(width), height(height), state(state)
-{
-
-}
-
 void Sprite::setPosition(int x, int y)
 {
 	this->x = x;

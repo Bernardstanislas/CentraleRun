@@ -7,6 +7,5 @@ protected:
 	int hp;
 public:
 	SpPlayer();
-	~SpPlayer();
 };
 
