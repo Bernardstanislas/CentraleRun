@@ -4,10 +4,8 @@ class SpAcMove :
 	public SpriteAction
 {
 protected:
-	int duration;
-	int elapsedTime;
+	int speed;
 public:
-	SpAcMove();
-	~SpAcMove();
+	SpAcMove(int speed);
 	void execute();
 };

@@ -14,9 +14,6 @@ private:
 	CollisionHandler *collisionHandler;
 
 public:
-	Field();
-	~Field();
-
 	// return in C++ copy the returned object, so we need to return a reference.
 	// const's are just there for clarity
 	vector<unique_ptr<Sprite>> const& getSprites() const;

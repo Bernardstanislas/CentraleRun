@@ -5,6 +5,6 @@ class SpProjectile :
 {
 public:
 	SpProjectile();
-	~SpProjectile();
+	SpProjectile(int x, int y);
 };
 

@@ -1,13 +1,9 @@
 #include "SpAcMove.h"
 
 
-SpAcMove::SpAcMove()
+SpAcMove::SpAcMove(int speed) : speed(speed)
 {
-}
-
-
-SpAcMove::~SpAcMove()
-{
+	duration = -1;
 }
 
 void SpAcMove::execute()
