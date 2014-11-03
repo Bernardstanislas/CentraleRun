@@ -2,6 +2,8 @@
 #include "SpPlayer.h"
 #include "Sprite.h"
 #include "SpObstacle.h"
+#include "SpProjectile.h"
+#include "SpAcMove.h"
 
 View::View(sf::RenderWindow &context) : context(context)
 {
@@ -10,16 +12,16 @@ View::View(sf::RenderWindow &context) : context(context)
 	unique_ptr<Sprite> sprite1 = unique_ptr<SpObstacle>(new SpObstacle(3, 3, 6, 1));
 	unique_ptr<Sprite> sprite2 = unique_ptr<SpObstacle>(new SpObstacle(2, 2, 8, 2));
 	unique_ptr<Sprite> sprite3 = unique_ptr<SpObstacle>(new SpObstacle(5, 2, 10, 0));
+	
+	unique_ptr<Sprite> proj = unique_ptr<SpProjectile>(new SpProjectile(0, 10));
+	unique_ptr<SpriteAction> move = unique_ptr<SpAcMove>(new SpAcMove(1));
+	proj->addAction(move);
 
 	field.addSprite(player);
 	field.addSprite(sprite1);
 	field.addSprite(sprite2);
 	field.addSprite(sprite3);
-}
-
-
-View::~View()
-{
+	field.addSprite(proj);
 }
 
 // Draw all sprites from the field as colored rectangles.

@@ -19,9 +19,11 @@ int main()
 				window.close();
 		}
 
+		mainView.field.executeSpriteActions();
 		// Redraw and display current frame
 		mainView.draw();
 		window.display();
+		sf::sleep(sf::seconds(.1));
 	}
 	return 0;
 }

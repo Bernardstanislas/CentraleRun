@@ -1,5 +1,5 @@
 #include "SpAcMove.h"
-
+#include "Sprite.h"
 
 SpAcMove::SpAcMove(int speed) : speed(speed)
 {
@@ -8,5 +8,6 @@ SpAcMove::SpAcMove(int speed) : speed(speed)
 
 void SpAcMove::execute()
 {
-
+	auto XY = source->getPosition();
+	source->setPosition(XY.first + speed, XY.second);
 }

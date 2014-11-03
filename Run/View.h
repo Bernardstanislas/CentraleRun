@@ -9,11 +9,10 @@ class View
 {
 private:
 	sf::RenderWindow& context;
-	Field field;
 	int blockSize = BLOCKSIZE;
 public:
+	Field field;
 	View(sf::RenderWindow &context);
-	~View();
 	void draw();
 };
 
