@@ -11,7 +11,7 @@ class Field
 private:
 	vector<unique_ptr<Sprite>> sprites;
 	vector<unique_ptr<FieldAction>> actions;
-	CollisionHandler *collisionHandler;
+	CollisionHandler collisionHandler;
 
 public:
 	Field();

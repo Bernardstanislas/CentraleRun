@@ -5,6 +5,6 @@ using namespace std;
 
 TEST(CollisionHandler, Instance) {
   EXPECT_NO_THROW({
-    CollisionHandler* collisionHandler = CollisionHandler::Instance();
+    //CollisionHandler collisionHandler = CollisionHandler();
   });
 }
