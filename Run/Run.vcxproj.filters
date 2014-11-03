@@ -102,6 +102,9 @@
     <ClCompile Include="View.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteAction.cpp">
+      <Filter>Fichiers sources\Classes\Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Field.h">
