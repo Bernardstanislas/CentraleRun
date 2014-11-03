@@ -13,11 +13,11 @@ class CollisionHandler
 private:
 	ColliderMap associationMap;
 	vector<shared_ptr<Collider>> knownColliders;
-	shared_ptr<Collider> getCollider(Sprite sp1, Sprite sp2);
-	SpriteType::Type getSpriteType(Sprite sp);
+	shared_ptr<Collider> getCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
+	SpriteType::Type getSpriteType(unique_ptr<Sprite>& sp);
 public:
 	CollisionHandler();
 	~CollisionHandler();
-	void executeCollider(Sprite sp1, Sprite sp2);
+	void executeCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
 };
 

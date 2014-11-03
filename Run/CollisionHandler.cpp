@@ -13,13 +13,13 @@ CollisionHandler::~CollisionHandler()
 
 };
 
-void CollisionHandler::executeCollider(Sprite sp1, Sprite sp2)
+void CollisionHandler::executeCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2)
 {
   shared_ptr<Collider> collider = this->getCollider(sp1, sp2);
   collider->collide(sp1, sp2);
 };
 
-shared_ptr<Collider> CollisionHandler::getCollider(Sprite sp1, Sprite sp2) {
+shared_ptr<Collider> CollisionHandler::getCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2) {
   SpriteType::Type type1 = this->getSpriteType(sp1);
   SpriteType::Type type2 = this->getSpriteType(sp2);
   ColliderKey pair1 (type1, type2);
@@ -38,7 +38,7 @@ shared_ptr<Collider> CollisionHandler::getCollider(Sprite sp1, Sprite sp2) {
   }
 };
 
-SpriteType::Type CollisionHandler::getSpriteType(Sprite sp) {
+SpriteType::Type CollisionHandler::getSpriteType(unique_ptr<Sprite>& sp) {
   string sType = typeid(sp).name();
   return SpriteType::getType(sType);
 };
