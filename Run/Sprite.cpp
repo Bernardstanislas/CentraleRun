@@ -32,7 +32,7 @@ int Sprite::getState()
 	return this->state;
 }
 
-void Sprite::addAction(unique_ptr<SpriteAction> action)
+void Sprite::addAction(unique_ptr<SpriteAction> &action)
 {
 	action->setSource(this);
 	this->actions.push_back(move(action));
@@ -50,5 +50,5 @@ void Sprite::executeActions()
 
 vector<unique_ptr<SpriteAction>> const& Sprite::getActions() const
 {
-	return std::move(actions);
+	return actions;
 }
