@@ -2,5 +2,5 @@
 
 bool Action::isOver()
 {
-	return true;
+	return (elapsedTime >= duration && duration != -1);
 }

@@ -1,13 +1,16 @@
 #pragma once
+
 #include "FieldAction.h"
+#include "SpriteType.h"
+
 class FiAcCreateProjectile :
 	public FieldAction
 {
 protected:
-	int duration;
-	int elapsedTime;
+	int x;
+	int y;
+	SpriteType projectile;
 public:
-	FiAcCreateProjectile();
-	~FiAcCreateProjectile();
+	FiAcCreateProjectile(SpriteType projectile, int x, int y);
 	void execute();
 };
