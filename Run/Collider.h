@@ -7,7 +7,7 @@ using namespace std;
 
 class Collider
 {
-protected:	
+protected:
 	SpriteType::Type type1;
 	SpriteType::Type type2;
 public:

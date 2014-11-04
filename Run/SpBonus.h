@@ -4,7 +4,8 @@ class SpBonus :
 	public Sprite
 {
 public:
-	SpBonus();
+    SpBonus();
+	SpBonus(int x, int y, int width, int height, int state);
 	~SpBonus();
 };
 

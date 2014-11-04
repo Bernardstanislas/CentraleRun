@@ -2,12 +2,13 @@
 
 Sprite::Sprite()
 {
-
+    this->spActions = vector<unique_ptr<SpriteAction>>();
 }
 
-Sprite::Sprite(int x, int y, int width, int height, int state) : x(x), y(y), width(width), height(height), state(state)
+Sprite::Sprite(int x, int y, int width, int height, int state) :
+    x(x), y(y), width(width), height(height), state(state)
 {
-
+    this->spActions = vector<unique_ptr<SpriteAction>>();
 }
 
 void Sprite::setPosition(int x, int y)
@@ -42,17 +43,25 @@ int Sprite::getState()
 	return this->state;
 }
 
-void Sprite::addAction(unique_ptr<Action> &action)
+void Sprite::addAction(unique_ptr<SpriteAction> &spAction)
 {
-
+    this->spActions.push_back(move(spAction));
 }
 
-void Sprite::deleteAction(unique_ptr<Action> action)
+void Sprite::deleteAction(unique_ptr<SpriteAction> spAction)
 {
-
+    this->spActions.erase(
+        std::remove(this->spActions.begin(), this->spActions.end(), spAction),
+        this->spActions.end());
 }
 
-void Sprite::executeActions()
+vector<unique_ptr<FieldAction>> Sprite::executeActions()
 {
-
+    vector<unique_ptr<FieldAction>> fieldActions;
+    for (auto & spAction : this->spActions) {
+        unique_ptr<FieldAction> fieldAction(spAction->execute(this));
+        // To do when the FieldAction class is ready: only add if fieldAction is not empty/null
+        fieldActions.push_back(move(fieldAction));
+    }
+    return fieldActions;
 }

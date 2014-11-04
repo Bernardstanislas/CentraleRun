@@ -1,7 +1,9 @@
 #pragma once
 
 #include "Action.h"
-#include "Field.h"
+
+// forward declaration to avoid cyclic inclusion
+class Field;
 
 class FieldAction :
 	public Action
