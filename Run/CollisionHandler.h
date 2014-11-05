@@ -15,9 +15,9 @@ private:
 	vector<shared_ptr<Collider>> knownColliders;
 	shared_ptr<Collider> getCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
 	SpriteType::Type getSpriteType(unique_ptr<Sprite>& sp);
+	bool colliding(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
 public:
 	CollisionHandler();
 	~CollisionHandler();
 	void executeCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
 };
-
