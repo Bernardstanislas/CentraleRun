@@ -20,6 +20,7 @@ int main()
 		}
 
 		mainView.field.executeSpriteActions();
+		mainView.field.executeFieldActions();
 		// Redraw and display current frame
 		mainView.draw();
 		window.display();

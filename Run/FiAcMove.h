@@ -4,10 +4,8 @@ class FiAcMove :
 	public FieldAction
 {
 protected:
-	int duration;
-	int elapsedTime;
+	int speed;
 public:
-	FiAcMove();
-	~FiAcMove();
+	FiAcMove(int speed);
 	void execute();
 };
