@@ -9,9 +9,9 @@ FiAcMove::FiAcMove(int speed) : speed(speed)
 
 void FiAcMove::execute()
 {
-	for (auto const& sprite : target->getSprites()) // Erreur ici
+	for (auto const& sprite : target->getSprites())
 	{
-		if (typeid(sprite) != typeid(SpPlayer))
+		if (dynamic_cast<SpPlayer*>(sprite.get()) == nullptr)
 		{
 			auto XY = sprite->getPosition();
 			sprite->setPosition(XY.first - 1, XY.second);

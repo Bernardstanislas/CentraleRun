@@ -18,6 +18,7 @@ void Field::deleteSprite(int position)
 
 void Field::addAction(unique_ptr<FieldAction> &action)
 {
+	action->setTarget(this);
 	this->actions.push_back(move(action));
 }
 
