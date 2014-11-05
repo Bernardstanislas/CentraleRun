@@ -1,12 +1,18 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#include "config.h"
+
 #include "View.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "Run");
+	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Run");
+	window.setFramerateLimit(VIEW_FRAMERATE);
+	
 	View mainView(window);
+
+	int frameSkip = 0;
 
 	while (window.isOpen())
 	{
@@ -19,12 +25,17 @@ int main()
 				window.close();
 		}
 
-		mainView.field.executeSpriteActions();
-		mainView.field.executeFieldActions();
+		if (frameSkip < VIEW_FRAMERATE / FRAMERATE) frameSkip++;
+		else
+		{
+			mainView.field.executeSpriteActions();
+			mainView.field.executeFieldActions();
+			frameSkip = 0;
+		}
+
 		// Redraw and display current frame
 		mainView.draw();
 		window.display();
-		sf::sleep(sf::seconds(.1f));
 	}
 	return 0;
 }
