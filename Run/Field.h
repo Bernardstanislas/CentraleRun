@@ -18,6 +18,7 @@ public:
 	// return in C++ copy the returned object, so we need to return a reference.
 	// const's are just there for clarity
 	vector<unique_ptr<Sprite>> const& getSprites() const;
+	vector<Sprite*> getSpritesCopy();
 
 	void addSprite(unique_ptr<Sprite> &sprite);
 	void deleteSprite(unique_ptr<Sprite> &sprite);
