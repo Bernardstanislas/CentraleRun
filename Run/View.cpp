@@ -15,8 +15,6 @@ View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
 	unique_ptr<Sprite> player = unique_ptr<SpPlayer>(new SpPlayer());
-	//unique_ptr<SpriteAction> saut = unique_ptr<SpAcJump>(new SpAcJump());
-	//player->addAction(saut);
 
 	unique_ptr<Sprite> proj = unique_ptr<SpProjectile>(new SpProjectile(0, 10));
 	unique_ptr<SpriteAction> movement = unique_ptr<SpAcMove>(new SpAcMove(5));

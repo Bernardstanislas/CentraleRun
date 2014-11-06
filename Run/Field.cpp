@@ -62,11 +62,7 @@ void Field::executeSpriteActions()
 {
 	for (auto const& sprite : sprites)
 	{
-		for (auto const& action : sprite->getActions())
-		{
-			action->execute();
-			action->isOver();
-		}
+		sprite->executeActions();
 	}
 }
 

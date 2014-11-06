@@ -26,7 +26,7 @@ public:
 	void setState(int state);
 	int getState();
 	void addAction(unique_ptr<SpriteAction> &spActions);
-	void deleteAction(unique_ptr<SpriteAction> spAction);
+	vector<unique_ptr<SpriteAction>>::iterator deleteAction(unique_ptr<SpriteAction> &spAction);
 	vector<unique_ptr<FieldAction>> executeActions();
 	vector<unique_ptr<SpriteAction>> const& getActions() const;
 };
