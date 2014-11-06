@@ -1,13 +1,12 @@
 #pragma once
 #include "SpriteAction.h"
+
 class SpAcJump :
 	public SpriteAction
 {
-protected:
-	int duration;
-	int elapsedTime;
+private:
+	int height;
 public:
-	SpAcJump();
-	~SpAcJump();
+	SpAcJump(int height = 4);
 	FieldAction* execute();
 };
