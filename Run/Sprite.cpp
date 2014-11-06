@@ -1,5 +1,5 @@
 #include "Sprite.h"
-
+#include <iostream>
 void Sprite::setPosition(int x, int y)
 {
 	this->x = x;
@@ -38,37 +38,31 @@ void Sprite::addAction(unique_ptr<SpriteAction> &spAction)
 	this->spActions.push_back(move(spAction));
 }
 
-vector<unique_ptr<SpriteAction>>::iterator Sprite::deleteAction(unique_ptr<SpriteAction> &spAction)
+void Sprite::deleteAction(unique_ptr<SpriteAction> &spAction)
 {
-    return this->spActions.erase(
+	this->spActions.erase(
         std::remove(this->spActions.begin(), this->spActions.end(), spAction),
         this->spActions.end());
 }
 
 vector<unique_ptr<FieldAction>> Sprite::executeActions()
-{
-    //this section doesn't work. We'll fix it asap, but somewhere else.
-	
+{	
 	vector<unique_ptr<FieldAction>> fieldActions;
-	for (auto &spAction = spActions.begin(); spAction != spActions.end(); spAction++)
+
+	auto spAction = spActions.begin();
+	while (spAction != spActions.end())
 	{
-        unique_ptr<FieldAction> fieldAction(spAction->execute());
+		unique_ptr<FieldAction> fieldAction((*spAction)->execute());
         // To do when the FieldAction class is ready: only add if fieldAction is not empty/null
         fieldActions.push_back(move(fieldAction));
-		if (spAction->isOver()){
-			spAction = deleteAction(spAction);
-		}
+		
+		// Deleting action if it's over
+		if ((*spAction)->isOver())
+			spAction = spActions.erase(spAction);
+		else
+			spAction++;
     }
     return fieldActions; 
-	
-	
-	/*
-	for (auto const& action : spActions)
-	{
-		action->execute();
-		action->isOver();
-	}
-	return vector<unique_ptr<FieldAction>>();*/
 }
 
 vector<unique_ptr<SpriteAction>> const& Sprite::getActions() const
