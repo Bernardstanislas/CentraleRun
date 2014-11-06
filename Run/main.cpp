@@ -14,8 +14,6 @@ int main()
 	
 	View mainView(window);
 
-	int frameSkip = 0;
-
 	while (window.isOpen())
 	{
 		// Handle various events based on keyboards I/O
@@ -51,13 +49,14 @@ int main()
 		}
 
 		// View is rocking a VIEW_FRAMERATE framerate (probably 60fps)
-		// But we're effectively acting only at a FRAMERATE framerate (meaning we're handling things every 3-4 frame)
-		if (frameSkip < VIEW_FRAMERATE / FRAMERATE - 1) frameSkip++;
+		// But we're effectively acting only at a FRAMERATE framerate (meaning we're handling things every 3-4 frames)
+		if (mainView.frameSkip < VIEW_FRAMERATE / FRAMERATE - 1) mainView.frameSkip++;
 		else
 		{
+			mainView.prevSprites = mainView.field.getSpritesCopy();
 			mainView.field.executeSpriteActions();
 			mainView.field.executeFieldActions();
-			frameSkip = 0;
+			mainView.frameSkip = 0;
 		}
 
 		// Redraw and display current frame

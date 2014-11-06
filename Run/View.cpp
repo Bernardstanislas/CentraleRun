@@ -11,6 +11,8 @@
 
 #include "config.h"
 
+#include <iostream>
+
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
@@ -37,6 +39,18 @@ void View::draw()
 	// Iterators copy the objects in vector, so we also need to iterate through references
 	for (auto const& sprite : field.getSprites())
 	{
+		vector<Sprite*>::iterator prevSprite = find(prevSprites.begin(), prevSprites.end(), sprite.get());
+		if (prevSprite != prevSprites.end())
+		{
+			pair<int, int> ppos = (*prevSprite)->getPosition();
+			pair<int, int> psize = (*prevSprite)->getSize();
+		}
+		else
+		{
+			pair<int, int> ppos = { -1, -1 };
+			pair<int, int> psize = { -1, -1 };
+		}
+
 		pair<int, int> pos = sprite->getPosition();
 		pair<int, int> size = sprite->getSize();
 		int state = sprite->getState();
