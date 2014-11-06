@@ -1,4 +1,10 @@
 #include "Action.h"
+#include <iostream>
+
+Action::Action(int duration) : duration(duration)
+{
+	
+}
 
 bool Action::isOver()
 {

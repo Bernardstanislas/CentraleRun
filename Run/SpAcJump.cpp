@@ -2,27 +2,25 @@
 #include "config.h"
 #include <cmath>
 #include "Sprite.h"
+#include <iostream>
 
-SpAcJump::SpAcJump(int height) : height(height)
+SpAcJump::SpAcJump(int height) : height(height), SpriteAction(FRAMERATE)
 {
-	//duration = ceil(FRAMERATE/(2*height-1))*(2*height-1); Not sure if duration has to be an entire number of frame.
-	duration = FRAMERATE;
-	elapsedTime = 0;
-}
 
+}
 
 
 FieldAction* SpAcJump::execute()
 {
 	auto XY = source->getPosition();
-	
-	int thisHeight = (4 * height / duration)*(-(elapsedTime*elapsedTime) / duration + elapsedTime);
-	int nextHeight = (4 * height / duration)*(-((elapsedTime+1)*(elapsedTime+1)) / duration + elapsedTime+1);
 
-	if (elapsedTime < duration){
-		source->setPosition(XY.first, XY.second + nextHeight - thisHeight);
+	int thisHeight = (4 * height / Action::duration)*(-(Action::elapsedTime*Action::elapsedTime) / Action::duration + Action::elapsedTime);
+	int nextHeight = (4 * height / Action::duration)*(-((Action::elapsedTime + 1)*(Action::elapsedTime + 1)) / Action::duration + Action::elapsedTime + 1);
+
+	Action::elapsedTime++;
+	if (Action::elapsedTime <= Action::duration){
+		SpriteAction::source->setPosition(XY.first, XY.second + nextHeight - thisHeight);
 	}
-
-	elapsedTime++;
+	
 	return nullptr;
 }

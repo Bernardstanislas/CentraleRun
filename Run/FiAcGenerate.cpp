@@ -3,9 +3,9 @@
 #include "SpObstacle.h"
 #include "Field.h"
 
-FiAcGenerate::FiAcGenerate(int speed) : speed(speed)
+FiAcGenerate::FiAcGenerate(int speed) : speed(speed), FieldAction()
 {
-	duration = -1;
+
 }
 
 

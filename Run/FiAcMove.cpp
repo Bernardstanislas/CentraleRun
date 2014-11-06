@@ -2,9 +2,9 @@
 #include "Field.h"
 #include "SpPlayer.h"
 
-FiAcMove::FiAcMove(int speed) : speed(speed)
+FiAcMove::FiAcMove(int speed) : speed(speed), FieldAction()
 {
-	duration = -1;
+
 }
 
 void FiAcMove::execute()

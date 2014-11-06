@@ -3,9 +3,9 @@
 #include "SpAcMove.h"
 #include "Field.h"
 
-FiAcCreateProjectile::FiAcCreateProjectile(SpriteType projectile, int x, int y) : projectile(projectile), x(x), y(y)
+FiAcCreateProjectile::FiAcCreateProjectile(SpriteType projectile, int x, int y) : projectile(projectile), x(x), y(y), FieldAction()
 {
-	this->duration = 1;
+
 }
 
 void FiAcCreateProjectile::execute()
