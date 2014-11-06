@@ -10,7 +10,7 @@ SpAcJump::~SpAcJump()
 {
 }
 
-void SpAcJump::execute()
+FieldAction* SpAcJump::execute()
 {
-
+	return nullptr;
 }

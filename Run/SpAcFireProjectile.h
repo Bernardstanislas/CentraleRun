@@ -9,5 +9,5 @@ protected:
 public:
 	SpAcFireProjectile();
 	~SpAcFireProjectile();
-	void execute();
+	FieldAction* execute();
 };

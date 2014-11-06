@@ -9,5 +9,5 @@ protected:
 public:
 	SpAcJump();
 	~SpAcJump();
-	void execute();
+	FieldAction* execute();
 };

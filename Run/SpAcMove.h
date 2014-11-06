@@ -7,5 +7,5 @@ protected:
 	int speed;
 public:
 	SpAcMove(int speed);
-	void execute();
+	FieldAction* execute();
 };

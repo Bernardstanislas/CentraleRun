@@ -6,8 +6,9 @@ SpAcMove::SpAcMove(int speed) : speed(speed)
 	duration = -1;
 }
 
-void SpAcMove::execute()
+FieldAction* SpAcMove::execute()
 {
 	auto XY = source->getPosition();
 	source->setPosition(XY.first + speed, XY.second);
+	return nullptr;
 }
