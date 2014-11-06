@@ -4,24 +4,28 @@
 #include "SpObstacle.h"
 #include "SpProjectile.h"
 #include "SpAcMove.h"
+#include "FieldAction.h"
+#include "FiAcMove.h"
+#include "FiAcGenerate.h"
+
+#include "config.h"
 
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
 	unique_ptr<Sprite> player = unique_ptr<SpPlayer>(new SpPlayer());
-	unique_ptr<Sprite> sprite1 = unique_ptr<SpObstacle>(new SpObstacle(3, 3, 6, 1));
-	unique_ptr<Sprite> sprite2 = unique_ptr<SpObstacle>(new SpObstacle(2, 2, 8, 2));
-	unique_ptr<Sprite> sprite3 = unique_ptr<SpObstacle>(new SpObstacle(5, 2, 10, 0));
 	
 	unique_ptr<Sprite> proj = unique_ptr<SpProjectile>(new SpProjectile(0, 10));
-	unique_ptr<SpriteAction> movement = unique_ptr<SpAcMove>(new SpAcMove(1));
+	unique_ptr<SpriteAction> movement = unique_ptr<SpAcMove>(new SpAcMove(5));
 	proj->addAction(movement);
 
 	field.addSprite(player);
-	field.addSprite(sprite1);
-	field.addSprite(sprite2);
-	field.addSprite(sprite3);
 	field.addSprite(proj);
+
+	unique_ptr<FieldAction> run = unique_ptr<FiAcMove>(new FiAcMove(BASE_SPEED));
+	field.addAction(run);
+	unique_ptr<FieldAction> generate = unique_ptr<FiAcGenerate>(new FiAcGenerate(BASE_SPEED));
+	field.addAction(generate);
 }
 
 // Draw all sprites from the field as colored rectangles.

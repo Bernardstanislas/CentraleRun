@@ -1,0 +1,8 @@
+#define BLOCKSIZE 20
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 720
+
+#define VIEW_FRAMERATE 60
+#define FRAMERATE 15
+
+#define BASE_SPEED 3
