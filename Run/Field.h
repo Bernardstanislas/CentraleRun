@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "CollisionHandler.h"
 #include "FieldAction.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -19,9 +20,10 @@ public:
 	vector<unique_ptr<Sprite>> const& getSprites() const;
 
 	void addSprite(unique_ptr<Sprite> &sprite);
-	void deleteSprite(int position);
+	void deleteSprite(unique_ptr<Sprite> &sprite);
+	void deleteOutOfBoundSprites();
 	void addAction(unique_ptr<FieldAction> &action);
-	void deleteAction(int position);
+	void deleteAction(unique_ptr<FieldAction> &action);
 
 	void executeFieldActions();
 	void executeSpriteActions();

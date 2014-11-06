@@ -11,9 +11,27 @@ void Field::addSprite(unique_ptr<Sprite> &sprite)
 	this->sprites.push_back(move(sprite));
 }
 
-void Field::deleteSprite(int position)
+void Field::deleteSprite(unique_ptr<Sprite> &sprite)
 {
-	this->sprites.erase(sprites.begin() + position);
+	this->sprites.erase(
+		remove(this->sprites.begin(), this->sprites.end(), sprite),
+		this->sprites.end()
+		);
+}
+
+void Field::deleteOutOfBoundSprites()
+{
+	this->sprites.erase(
+		remove_if(
+			this->sprites.begin(), 
+			this->sprites.end(), 
+			[](unique_ptr<Sprite> &sprite)
+			{ 
+				return sprite->getPosition().first + sprite->getSize().first < 0; 
+			}
+		),
+		this->sprites.end()
+		);
 }
 
 void Field::addAction(unique_ptr<FieldAction> &action)
@@ -22,10 +40,14 @@ void Field::addAction(unique_ptr<FieldAction> &action)
 	this->actions.push_back(move(action));
 }
 
-void Field::deleteAction(int position)
+void Field::deleteAction(unique_ptr<FieldAction> &action)
 {
-	this->actions.erase(actions.begin() + position);
+	this->actions.erase(
+		remove(this->actions.begin(), this->actions.end(), action), 
+		this->actions.end()
+	);
 }
+
 
 void Field::executeFieldActions()
 {
