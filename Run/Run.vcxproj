@@ -93,7 +93,6 @@
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
-    <ClCompile Include="FiAcClear.cpp" />
     <ClCompile Include="FiAcCreateProjectile.cpp" />
     <ClCompile Include="FiAcGenerate.cpp" />
     <ClCompile Include="FiAcMove.cpp" />
@@ -117,7 +116,6 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="FiAcClear.h" />
     <ClInclude Include="FiAcCreateProjectile.h" />
     <ClInclude Include="FiAcGenerate.h" />
     <ClInclude Include="FiAcMove.h" />

@@ -5,8 +5,6 @@
 class FiAcClear :
 	public FieldAction
 {
-protected:
-	
 public:
 	FiAcClear();
 	~FiAcClear();

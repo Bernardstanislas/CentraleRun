@@ -9,8 +9,6 @@ class FieldAction :
 {
 protected:
 	Field *target;
-	int duration;
-	int elapsedTime;
 public:
 	FieldAction(int duration = -1);
 	virtual void execute() = 0;

@@ -1,6 +1,5 @@
 #include "SpAcMove.h"
 #include "Sprite.h"
-#include <iostream>
 
 SpAcMove::SpAcMove(int speed) : speed(speed), SpriteAction()
 {

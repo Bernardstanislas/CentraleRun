@@ -69,9 +69,6 @@
     <ClCompile Include="FiAcCreateProjectile.cpp">
       <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
     </ClCompile>
-    <ClCompile Include="FiAcClear.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
     <ClCompile Include="FiAcGenerate.cpp">
       <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
     </ClCompile>
@@ -144,9 +141,6 @@
       <Filter>Fichiers d%27en-tête\Sprites</Filter>
     </ClInclude>
     <ClInclude Include="FiAcCreateProjectile.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="FiAcClear.h">
       <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
     </ClInclude>
     <ClInclude Include="FiAcGenerate.h">

@@ -1,5 +1,5 @@
 #include "Sprite.h"
-#include <iostream>
+
 void Sprite::setPosition(int x, int y)
 {
 	this->x = x;

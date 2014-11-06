@@ -2,7 +2,6 @@
 #include "config.h"
 #include <cmath>
 #include "Sprite.h"
-#include <iostream>
 
 SpAcJump::SpAcJump(int height) : height(height), SpriteAction(FRAMERATE)
 {
@@ -14,11 +13,11 @@ FieldAction* SpAcJump::execute()
 {
 	auto XY = source->getPosition();
 
-	int thisHeight = (4 * height / Action::duration)*(-(Action::elapsedTime*Action::elapsedTime) / Action::duration + Action::elapsedTime);
-	int nextHeight = (4 * height / Action::duration)*(-((Action::elapsedTime + 1)*(Action::elapsedTime + 1)) / Action::duration + Action::elapsedTime + 1);
+	int thisHeight = (4 * height / getDuration())*(-(getTime()*getTime()) / getDuration() + getTime());
+	int nextHeight = (4 * height / getDuration())*(-((getTime() + 1)*(getTime() + 1)) / getDuration() + getTime() + 1);
 
-	Action::elapsedTime++;
-	if (Action::elapsedTime <= Action::duration){
+	incTime();
+	if (getTime() <= getDuration()){
 		SpriteAction::source->setPosition(XY.first, XY.second + nextHeight - thisHeight);
 	}
 	

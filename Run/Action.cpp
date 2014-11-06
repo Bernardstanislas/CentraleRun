@@ -1,5 +1,19 @@
 #include "Action.h"
-#include <iostream>
+
+int Action::getDuration()
+{
+	return duration;
+}
+
+int Action::getTime()
+{
+	return elapsedTime;
+}
+
+void Action::incTime()
+{
+	elapsedTime++;
+}
 
 Action::Action(int duration) : duration(duration)
 {
