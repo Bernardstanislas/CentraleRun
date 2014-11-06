@@ -11,13 +11,13 @@ typedef map<ColliderKey, shared_ptr<Collider>> ColliderMap;
 class CollisionHandler
 {
 private:
-	ColliderMap associationMap;
-	vector<shared_ptr<Collider>> knownColliders;
-	shared_ptr<Collider> getCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
-	SpriteType::Type getSpriteType(unique_ptr<Sprite>& sp);
+	vector<shared_ptr<Collider>> activeColliders;
+	vector<shared_ptr<Collider>> inactiveColliders;
+	shared_ptr<Collider> getCollider(const unique_ptr<Sprite>& sp1, const unique_ptr<Sprite>& sp2) const;
+	SpriteType::Type getSpriteType(const unique_ptr<Sprite>& sp) const;
+	bool areColliding(const unique_ptr<Sprite>& sp1, const unique_ptr<Sprite>& sp2) const;
 public:
 	CollisionHandler();
 	~CollisionHandler();
-	void executeCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
+	void executeCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2) const;
 };
-

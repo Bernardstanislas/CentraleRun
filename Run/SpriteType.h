@@ -9,7 +9,8 @@ public:
 		PLAYER,
 		OBSTACLE,
 		PROJECTILE,
-		BONUS
+		BONUS,
+		UNKNOWN
 	};
 	static Type getType(std::string type);
 };
