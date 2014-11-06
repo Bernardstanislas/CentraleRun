@@ -107,6 +107,7 @@
     <ClInclude Include="Action.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="config.h" />
     <ClInclude Include="FiAcClear.h" />
     <ClInclude Include="FiAcCreateProjectile.h" />
     <ClInclude Include="FiAcGenerate.h" />

@@ -14,7 +14,7 @@ void FiAcMove::execute()
 		if (dynamic_cast<SpPlayer*>(sprite.get()) == nullptr)
 		{
 			auto XY = sprite->getPosition();
-			sprite->setPosition(XY.first - 1, XY.second);
+			sprite->setPosition(XY.first - speed, XY.second);
 		}
 	}
 }

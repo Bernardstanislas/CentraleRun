@@ -4,3 +4,5 @@
 
 #define VIEW_FRAMERATE 60
 #define FRAMERATE 15
+
+#define BASE_SPEED 3

@@ -25,7 +25,9 @@ int main()
 				window.close();
 		}
 
-		if (frameSkip < VIEW_FRAMERATE / FRAMERATE) frameSkip++;
+		// View is rocking a VIEW_FRAMERATE framerate (probably 60fps)
+		// But we're effectively acting only at a FRAMERATE framerate (meaning we're handling things every 3-4 frame)
+		if (frameSkip < VIEW_FRAMERATE / FRAMERATE - 1) frameSkip++;
 		else
 		{
 			mainView.field.executeSpriteActions();
