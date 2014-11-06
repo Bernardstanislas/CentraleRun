@@ -22,20 +22,29 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			//Window closed
+			// Window closed
 			if (event.type == sf::Event::Closed ||
 				(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)){
 				window.close();
 			}
 
-			//Jump
+			// Jump
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space){
 				for (auto &sprite : mainView.field.getSprites())
 				{
 					if (dynamic_cast<SpPlayer*>(sprite.get()) != nullptr)
 					{
 						unique_ptr<SpriteAction> saut = unique_ptr<SpAcJump>(new SpAcJump());
-						sprite->addAction(saut);
+						bool dont = false;
+						for (auto const& action : sprite->getActions())
+						{
+							if (dynamic_cast<SpAcJump*>(action.get()) != nullptr)
+							{
+								dont = true;
+								break;
+							}
+						}
+						if (!dont) sprite->addAction(saut);
 					}
 				}
 			}
