@@ -3,11 +3,7 @@
 class SpAcFireProjectile :
 	public SpriteAction
 {
-protected:
-	int duration;
-	int elapsedTime;
 public:
 	SpAcFireProjectile();
-	~SpAcFireProjectile();
 	FieldAction* execute();
 };

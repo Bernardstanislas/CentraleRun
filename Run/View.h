@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Field.h"
+#include <vector>
 
 class View
 {
@@ -12,6 +13,8 @@ private:
 	int blockSize = BLOCKSIZE;
 public:
 	Field field;
+	vector<Sprite*> prevSprites;
+	int frameSkip = 0;
 	View(sf::RenderWindow &context);
 	void draw();
 };

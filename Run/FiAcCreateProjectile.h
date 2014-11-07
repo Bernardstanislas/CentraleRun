@@ -9,8 +9,7 @@ class FiAcCreateProjectile :
 protected:
 	int x;
 	int y;
-	SpriteType projectile;
 public:
-	FiAcCreateProjectile(SpriteType projectile, int x, int y);
+	FiAcCreateProjectile(int x, int y);
 	void execute();
 };

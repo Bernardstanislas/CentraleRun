@@ -1,9 +1,9 @@
 #include "SpAcMove.h"
 #include "Sprite.h"
 
-SpAcMove::SpAcMove(int speed) : speed(speed)
+SpAcMove::SpAcMove(int speed) : speed(speed), SpriteAction()
 {
-	duration = -1;
+
 }
 
 FieldAction* SpAcMove::execute()

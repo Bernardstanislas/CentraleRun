@@ -1,14 +1,10 @@
 #include "FiAcClear.h"
 
 
-FiAcClear::FiAcClear()
+FiAcClear::FiAcClear() : FieldAction()
 {
 }
 
-
-FiAcClear::~FiAcClear()
-{
-}
 
 void FiAcClear::execute()
 {

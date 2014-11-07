@@ -1,11 +1,6 @@
 #include "SpAcFireProjectile.h"
 
-SpAcFireProjectile::SpAcFireProjectile()
-{
-}
-
-
-SpAcFireProjectile::~SpAcFireProjectile()
+SpAcFireProjectile::SpAcFireProjectile() : SpriteAction(1)
 {
 }
 

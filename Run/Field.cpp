@@ -5,6 +5,14 @@ vector<unique_ptr<Sprite>> const& Field::getSprites() const
 	return sprites;
 }
 
+vector<Sprite*> Field::getSpritesCopy()
+{
+	vector<Sprite*> output;
+	for (auto const& sprite : sprites)
+		output.push_back(sprite.get());
+	return output;
+}
+
 void Field::addSprite(unique_ptr<Sprite> &sprite)
 { 
 	// move gives ownership of the unique_ptr to the sprites vector
@@ -62,11 +70,7 @@ void Field::executeSpriteActions()
 {
 	for (auto const& sprite : sprites)
 	{
-		for (auto const& action : sprite->getActions())
-		{
-			action->execute();
-			action->isOver();
-		}
+		sprite->executeActions();
 	}
 }
 

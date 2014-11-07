@@ -38,22 +38,31 @@ void Sprite::addAction(unique_ptr<SpriteAction> &spAction)
 	this->spActions.push_back(move(spAction));
 }
 
-void Sprite::deleteAction(unique_ptr<SpriteAction> spAction)
+void Sprite::deleteAction(unique_ptr<SpriteAction> &spAction)
 {
-    this->spActions.erase(
+	this->spActions.erase(
         std::remove(this->spActions.begin(), this->spActions.end(), spAction),
         this->spActions.end());
 }
 
 vector<unique_ptr<FieldAction>> Sprite::executeActions()
-{
-    vector<unique_ptr<FieldAction>> fieldActions;
-    for (auto const& spAction : this->spActions) {
-        unique_ptr<FieldAction> fieldAction(spAction->execute());
+{	
+	vector<unique_ptr<FieldAction>> fieldActions;
+
+	auto spAction = spActions.begin();
+	while (spAction != spActions.end())
+	{
+		unique_ptr<FieldAction> fieldAction((*spAction)->execute());
         // To do when the FieldAction class is ready: only add if fieldAction is not empty/null
         fieldActions.push_back(move(fieldAction));
+		
+		// Deleting action if it's over
+		if ((*spAction)->isOver())
+			spAction = spActions.erase(spAction);
+		else
+			spAction++;
     }
-    return fieldActions;
+    return fieldActions; 
 }
 
 vector<unique_ptr<SpriteAction>> const& Sprite::getActions() const
