@@ -7,6 +7,5 @@ class FiAcClear :
 {
 public:
 	FiAcClear();
-	~FiAcClear();
 	void execute();
 };
