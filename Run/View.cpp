@@ -19,9 +19,9 @@ View::View(sf::RenderWindow &context) : context(context)
 	// Sample data for testing
 	unique_ptr<Sprite> player = unique_ptr<SpPlayer>(new SpPlayer());
 
-	/*Those two lines should replace the manual generation of the projectile for testing, but it does not work.
-	unique_ptr<FiAcCreateProjectile> createdProj = unique_ptr<FiAcCreateProjectile>(new FiAcCreateProjectile(0,10));
-	createdProj->execute();*/
+	//Those two lines should replace the manual generation of the projectile for testing, but projectile doest not appear.
+	//unique_ptr<FieldAction> createdProj = unique_ptr<FiAcCreateProjectile>(new FiAcCreateProjectile(0,10));
+	//field.addAction(createdProj);
 
 	unique_ptr<Sprite> proj = unique_ptr<SpProjectile>(new SpProjectile(0, 10));
 	unique_ptr<SpriteAction> movement = unique_ptr<SpAcMove>(new SpAcMove(5));
