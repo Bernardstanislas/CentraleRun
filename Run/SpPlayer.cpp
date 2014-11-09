@@ -10,3 +10,7 @@ SpPlayer::SpPlayer()
 	this->state = 2;
 	this->hp = 1;
 }
+
+const SpriteType::Type SpPlayer::getType() {
+	return SpriteType::Type::PLAYER;
+}

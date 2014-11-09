@@ -11,7 +11,7 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Run");
 	window.setFramerateLimit(VIEW_FRAMERATE);
-	
+
 	View mainView(window);
 
 	while (window.isOpen())
@@ -56,6 +56,7 @@ int main()
 			mainView.prevSprites = mainView.field.getSpritesCopy();
 			mainView.field.executeSpriteActions();
 			mainView.field.executeFieldActions();
+			mainView.field.executeCollisions();
 			mainView.frameSkip = 0;
 		}
 

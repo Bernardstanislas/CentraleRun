@@ -1,10 +1,13 @@
 #include "CollisionHandler.h"
 #include "SpriteType.h"
 #include <typeinfo>
+#include <iostream>
+#include "ColPlayerObstacle.h"
 
 
 CollisionHandler::CollisionHandler() {
   activeColliders = vector<shared_ptr<Collider>>();
+  activeColliders.push_back(shared_ptr<Collider>(new ColPlayerObstacle()));
   inactiveColliders = vector<shared_ptr<Collider>>();
 };
 
@@ -12,10 +15,12 @@ CollisionHandler::~CollisionHandler() {
 
 };
 
-void CollisionHandler::executeCollider(unique_ptr<Sprite> &sp1, unique_ptr<Sprite> &sp2) const {
+void CollisionHandler::executeCollider(unique_ptr<Sprite> &sp1, unique_ptr<Sprite> &sp2) {
   if (areColliding(sp1, sp2)) {
     shared_ptr<Collider> collider = this->getCollider(sp1, sp2);
-    collider->collide(sp1, sp2);
+    if (collider) {
+      collider->collide(sp1, sp2);
+    }
   }
 };
 
@@ -28,12 +33,11 @@ shared_ptr<Collider> CollisionHandler::getCollider(const unique_ptr<Sprite> &sp1
       return collider;
     }
   }
-  return shared_ptr<Collider>();
+  return shared_ptr<Collider>(nullptr);
 };
 
 SpriteType::Type CollisionHandler::getSpriteType(const unique_ptr<Sprite> &sp) const {
-  string sType = typeid(sp).name();
-  return SpriteType::getType(sType);
+  return sp->getType();
 };
 
 bool CollisionHandler::areColliding(const unique_ptr<Sprite>& sp1, const unique_ptr<Sprite>& sp2) const {
@@ -43,12 +47,12 @@ bool CollisionHandler::areColliding(const unique_ptr<Sprite>& sp1, const unique_
   pair<int, int> size2 = sp2->getSize();
 
   // Check if sprite 2 collides in sprite 1 bounding box
-  bool horizontal1 = position1.first + size1.first < position2.first && position2.first + size2.first < position1.first;
-  bool vertical1 = position1.second + size1.second < position2.second && position2.second + size2.second < position1.second;
+  bool horizontal1 = ((position1.first + size1.first) < position2.first) || ((position2.first + size2.first) < position1.first);
+  bool vertical1 = ((position1.second + size1.second) < position2.second) || ((position2.second + size2.second) < position1.second);
 
   // Check if sprite 1 collides in sprite 1 bounding box
-  bool horizontal2 = position2.first + size2.first < position1.first && position1.first + size1.first < position2.first;
-  bool vertical2 = position2.second + size2.second < position1.second && position1.second + size1.second < position2.second;
+  bool horizontal2 = ((position2.first + size2.first) < position1.first) || ((position1.first + size1.first) < position2.first);
+  bool vertical2 = ((position2.second + size2.second) < position1.second) || ((position1.second + size1.second) < position2.second);
 
-  return !(horizontal1 && vertical1 && horizontal2 && vertical2);
+  return !(horizontal1 || vertical1 || horizontal2 || vertical2);
 }

@@ -10,3 +10,7 @@ SpObstacle::SpObstacle(int width, int height, int x, int y)
 	this->state = 0;
 	this->hp = 3;
 }
+
+const SpriteType::Type SpObstacle::getType() {
+	return SpriteType::Type::OBSTACLE;
+}

@@ -8,6 +8,6 @@ class SpObstacle :
 protected:
 	int hp;
 public:
+	const SpriteType::Type getType();
 	SpObstacle(int width, int height, int x, int y);
 };
-
