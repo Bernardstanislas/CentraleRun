@@ -8,3 +8,7 @@ SpProjectile::SpProjectile(int x, int y)
 	this->height = 1;
 	this->state = 1;
 }
+
+const SpriteType::Type SpProjectile::getType() {
+	return SpriteType::Type::PROJECTILE;
+}

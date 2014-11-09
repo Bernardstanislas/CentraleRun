@@ -19,5 +19,5 @@ private:
 public:
 	CollisionHandler();
 	~CollisionHandler();
-	void executeCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2) const;
+	void executeCollider(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2);
 };

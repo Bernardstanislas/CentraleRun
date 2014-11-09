@@ -12,5 +12,5 @@ protected:
 	SpriteType::Type type2;
 public:
 	virtual void collide(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2) = 0;
-	virtual pair<SpriteType::Type, SpriteType::Type> getSignature() const;
+	virtual pair<SpriteType::Type, SpriteType::Type> getSignature() const = 0;
 };

@@ -12,5 +12,4 @@ public:
 		BONUS,
 		UNKNOWN
 	};
-	static Type getType(std::string type);
 };

@@ -43,6 +43,12 @@
     <Filter Include="Fichiers sources\Tests">
       <UniqueIdentifier>{fb814ef0-3e70-46cd-b1d2-a6277307283b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Classes\Collisions">
+      <UniqueIdentifier>{91cb8ca6-d81e-4aee-aa3a-fc1a2074eb09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Collisions">
+      <UniqueIdentifier>{84aabce8-f7e7-497d-a36e-6b03928267ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -117,6 +123,9 @@
     <ClCompile Include="..\Tests\CollisionHandlerTest.cpp">
       <Filter>Fichiers sources\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="ColPlayerObstacle.cpp">
+      <Filter>Fichiers sources\Classes\Collisions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Field.h">
@@ -178,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="config.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ColPlayerObstacle.h">
+      <Filter>Fichiers d%27en-tête\Collisions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
