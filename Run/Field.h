@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "CollisionHandler.h"
 #include "FieldAction.h"
+#include "SpriteView.h"
 #include <algorithm>
 
 using namespace std;
@@ -19,7 +20,7 @@ public:
 	// return in C++ copy the returned object, so we need to return a reference.
 	// const's are just there for clarity
 	vector<unique_ptr<Sprite>> const& getSprites() const;
-	vector<Sprite*> getSpritesCopy();
+	vector<SpriteView> getSpritesView();
 
 	void addSprite(unique_ptr<Sprite> &sprite);
 	void deleteSprite(unique_ptr<Sprite> &sprite);

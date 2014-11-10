@@ -11,11 +11,12 @@ vector<unique_ptr<Sprite>> const& Field::getSprites() const
 	return sprites;
 }
 
-vector<Sprite*> Field::getSpritesCopy()
+vector<SpriteView> Field::getSpritesView()
 {
-	vector<Sprite*> output;
+	vector<SpriteView> output;
 	for (auto const& sprite : sprites)
-		output.push_back(sprite.get());
+		output.push_back(SpriteView(sprite.get(), sprite->getSize().first, sprite->getSize().second, sprite->getPosition().first, sprite->getPosition().second));
+
 	return output;
 }
 

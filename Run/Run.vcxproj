@@ -108,6 +108,8 @@
     <ClCompile Include="SpProjectile.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAction.cpp" />
+    <ClCompile Include="SpriteType.cpp" />
+    <ClCompile Include="SpriteView.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +133,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteAction.h" />
     <ClInclude Include="SpriteType.h" />
+    <ClInclude Include="SpriteView.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
