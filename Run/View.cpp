@@ -14,6 +14,8 @@
 
 #include <iostream>
 
+#define FRAMESKIP (VIEW_FRAMERATE/FRAMERATE)
+
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
@@ -44,28 +46,36 @@ void View::draw()
 	// Iterators copy the objects in vector, so we also need to iterate through references
 	for (auto const& sprite : field.getSprites())
 	{
-		vector<Sprite*>::iterator prevSprite = find(prevSprites.begin(), prevSprites.end(), sprite.get());
-		if (prevSprite != prevSprites.end())
-		{
-			pair<int, int> ppos = (*prevSprite)->getPosition();
-			pair<int, int> psize = (*prevSprite)->getSize();
-		}
-		else
-		{
-			pair<int, int> ppos = { -1, -1 };
-			pair<int, int> psize = { -1, -1 };
-		}
-
 		pair<int, int> pos = sprite->getPosition();
 		pair<int, int> size = sprite->getSize();
 		int state = sprite->getState();
 
-		float width = (float)size.first*blockSize;
-		float height = (float)size.second*blockSize;
+		vector<SpriteView>::iterator prevSprite = find_if(
+			prevSprites.begin(),
+			prevSprites.end(),
+			[&sprite](SpriteView spriteV)
+			{
+				return spriteV.sprite == sprite.get();
+			});
+		pair<int, int> ppos;
+		pair<int, int> psize;
+		if (prevSprite != prevSprites.end())
+		{
+			ppos = (*prevSprite).getPosition();
+			psize = (*prevSprite).getSize();
+		}
+		else
+		{
+			ppos = pos;
+			psize = size;
+		}
+
+		float width = (psize.first + (size.first - psize.first) * (float)frameSkip / FRAMESKIP) * blockSize;
+		float height = (psize.second + (size.second - psize.second) * (float)frameSkip / FRAMESKIP) * blockSize;
 
 		// Our block origin is bottom-left corner and SMFL's is top-left.
-		float x = (float)pos.first*blockSize;
-		float y = context.getSize().y - (float)pos.second*blockSize - height;
+		float x = (ppos.first + (pos.first - ppos.first) * (float)frameSkip / FRAMESKIP) * blockSize;
+		float y = context.getSize().y - (ppos.second + (pos.second - ppos.second) * (float)frameSkip / FRAMESKIP) * blockSize - height;
 
 		sf::RectangleShape shape(sf::Vector2f(width, height));
 		shape.setPosition(sf::Vector2f(x,y));
