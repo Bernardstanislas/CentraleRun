@@ -22,6 +22,7 @@ public:
 	
 	int getSpeed();
 	void setSpeed(int speed);
+	void incSpeed();
 
 	vector<unique_ptr<Sprite>> const& getSprites() const;
 	vector<SpriteView> getSpritesView();

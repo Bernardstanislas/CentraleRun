@@ -16,6 +16,11 @@ void Field::setSpeed(int speed)
 	this->speed = speed;
 }
 
+void Field::incSpeed()
+{
+	speed++;
+}
+
 vector<unique_ptr<Sprite>> const& Field::getSprites() const
 {
 	return sprites;
@@ -93,10 +98,10 @@ void Field::executeSpriteActions()
 
 void Field::executeCollisions()
 {
-	for (auto index1 = 0; index1 < sprites.size(); ++index1)
+	for (unsigned int index1 = 0; index1 < sprites.size(); ++index1)
 	{
-		for (auto index2 = index1 + 1; index2 < sprites.size(); ++index2) {
-			int const indexDifference = index2 - index1;
+		for (unsigned int index2 = index1 + 1; index2 < sprites.size(); ++index2) {
+			unsigned int const indexDifference = index2 - index1;
 			if (indexDifference > 0) {
 				this->collisionHandler->executeCollider(sprites[index1], sprites[index2]);
 			}
