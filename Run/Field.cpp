@@ -6,6 +6,16 @@ Field::Field() {
 	collisionHandler = unique_ptr<CollisionHandler>(new CollisionHandler());
 }
 
+int Field::getSpeed()
+{
+	return speed;
+}
+
+void Field::setSpeed(int speed)
+{
+	this->speed = speed;
+}
+
 vector<unique_ptr<Sprite>> const& Field::getSprites() const
 {
 	return sprites;
@@ -42,7 +52,7 @@ void Field::deleteOutOfBoundSprites()
 			this->sprites.end(),
 			[](unique_ptr<Sprite> &sprite)
 			{
-				return sprite->getPosition().first + sprite->getSize().first < 0;
+				return sprite->getPosition().first + sprite->getSize().first < -10;
 			}
 		),
 		this->sprites.end()

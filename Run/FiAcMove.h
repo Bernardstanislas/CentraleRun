@@ -3,9 +3,7 @@
 class FiAcMove :
 	public FieldAction
 {
-protected:
-	int speed;
 public:
-	FiAcMove(int speed);
+	FiAcMove();
 	void execute();
 };

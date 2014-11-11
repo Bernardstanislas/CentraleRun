@@ -4,15 +4,14 @@
 
 #include "FieldAction.h"
 
-#define SEQUENCE_SIZE (WINDOW_WIDTH/BLOCKSIZE)
-
 class FiAcGenerate :
 	public FieldAction
 {
 private:
 	int blockCount = 0;
-	int speed;
+	int complexity;
 public:
-	FiAcGenerate(int speed);
+	FiAcGenerate(int complexity = 0);
+	void createSequence();
 	void execute();
 };
