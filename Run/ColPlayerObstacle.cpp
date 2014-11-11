@@ -7,6 +7,7 @@ ColPlayerObstacle::ColPlayerObstacle()
 	this->type2 = SpriteType::Type::OBSTACLE;
 }
 
+
 void ColPlayerObstacle::collide(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2) 
 {
 
