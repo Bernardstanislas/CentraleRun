@@ -108,7 +108,6 @@
     <ClCompile Include="SpProjectile.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAction.cpp" />
-    <ClCompile Include="SpriteType.cpp" />
     <ClCompile Include="SpriteView.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
