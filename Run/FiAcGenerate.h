@@ -9,9 +9,9 @@ class FiAcGenerate :
 {
 private:
 	int blockCount = 0;
-	int complexity;
+	int complexity = 0;
 public:
-	FiAcGenerate(int complexity = 0);
+	FiAcGenerate();
 	void createSequence();
 	void execute();
 };
