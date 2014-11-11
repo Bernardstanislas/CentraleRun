@@ -2,7 +2,7 @@
 
 #include "Collider.h"
 
-class ColPlayerObstacle :
+class ColPlayerObstacle : 
 	public Collider  
 {
 public:

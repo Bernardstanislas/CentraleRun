@@ -53,7 +53,7 @@ int main()
 		if (mainView.frameSkip < VIEW_FRAMERATE / FRAMERATE - 1) mainView.frameSkip++;
 		else
 		{
-			mainView.prevSprites = mainView.field.getSpritesCopy();
+			mainView.prevSprites = mainView.field.getSpritesView();
 			mainView.field.executeSpriteActions();
 			mainView.field.executeFieldActions();
 			mainView.field.executeCollisions();
