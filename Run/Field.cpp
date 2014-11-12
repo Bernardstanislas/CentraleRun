@@ -4,6 +4,30 @@ Field::Field() {
 	sprites = vector<unique_ptr<Sprite>>();
 	actions = vector<unique_ptr<FieldAction>>();
 	collisionHandler = unique_ptr<CollisionHandler>(new CollisionHandler());
+
+	for (int i = 0; i < SEQ_C0_COUNT; i++)
+	{
+		TerrainSequence seqTest;
+		seqTest.ParseFile("terrain0-" + to_string(i) + ".txt");
+		seqTest.FillData();
+		sequences.push_back(make_pair(0, move(seqTest.getData())));
+	}
+	
+}
+
+vector<TerrainGrid> Field::getSequence(int complexity)
+{
+	return sequences[rand() % SEQ_C0_COUNT].second;
+}
+
+unique_ptr<Sprite> Field::MakeRegularBlock(TerrainGrid &block)
+{
+	int y = block.begin()->first;
+	int x = block.begin()->second.begin()->first;
+	int height = block.size();
+	int width = block.begin()->second.size();
+
+	return make_unique<SpObstacle>(width, height, x+WINDOW_BLOCK_WIDTH, y);
 }
 
 int Field::getSpeed()

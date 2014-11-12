@@ -109,6 +109,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAction.cpp" />
     <ClCompile Include="SpriteView.cpp" />
+    <ClCompile Include="TerrainSequence.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -133,9 +134,14 @@
     <ClInclude Include="SpriteAction.h" />
     <ClInclude Include="SpriteType.h" />
     <ClInclude Include="SpriteView.h" />
+    <ClInclude Include="TerrainSequence.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="terrain0-3.txt" />
+    <Text Include="terrain0-0.txt" />
+    <Text Include="terrain0-1.txt" />
+    <Text Include="terrain0-2.txt" />
     <Text Include="terrain5-1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

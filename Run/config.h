@@ -9,6 +9,8 @@
 #define MAX_SPEED 6
 
 #define SEQUENCE_SIZE 30
+#define SEQUENCE_HEIGHT 7
+#define SEQ_C0_COUNT 4
 
 #define COMPLEXITY_INC_TIME 100
 #define SPEED_INC_TIME 200
