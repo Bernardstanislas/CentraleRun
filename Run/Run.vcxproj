@@ -135,6 +135,9 @@
     <ClInclude Include="SpriteView.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="terrain5-1.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\sfml-system.redist.2.1.0.0\build\native\sfml-system.redist.targets" Condition="Exists('..\packages\sfml-system.redist.2.1.0.0\build\native\sfml-system.redist.targets')" />

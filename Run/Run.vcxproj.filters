@@ -49,6 +49,9 @@
     <Filter Include="Fichiers d%27en-tête\Collisions">
       <UniqueIdentifier>{84aabce8-f7e7-497d-a36e-6b03928267ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Terrain">
+      <UniqueIdentifier>{3f25218b-11cb-4174-a387-d83d949bf594}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -191,5 +194,10 @@
     <ClInclude Include="SpriteView.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="terrain5-1.txt">
+      <Filter>Terrain</Filter>
+    </Text>
   </ItemGroup>
 </Project>
