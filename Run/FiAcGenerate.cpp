@@ -2,33 +2,70 @@
 #include "Sprite.h"
 #include "SpObstacle.h"
 #include "Field.h"
+#include <iostream>
+#include "SpAcMove.h"
 
-FiAcGenerate::FiAcGenerate(int speed) : speed(speed), FieldAction()
+FiAcGenerate::FiAcGenerate() : FieldAction()
 {
 
 }
 
 
+void FiAcGenerate::createSequence()
+{
+	vector<unique_ptr<Sprite>> sequence;
+	for (int i = 0; i < ceil((float)SEQUENCE_SIZE / 20); i++)
+	{
+		sequence.push_back(make_unique<SpObstacle>(1, 1));
+	}
+
+	if (complexity > 0)
+		for (int i = 0; i < ceil((float)SEQUENCE_SIZE / 40); i++)
+		{
+			sequence.push_back(make_unique<SpObstacle>(2, 2));
+		}
+
+	if (complexity > 1)
+		for (int i = 0; i < ceil((float)SEQUENCE_SIZE / 40); i++)
+		{
+			unique_ptr<Sprite> o = make_unique<SpObstacle>(1, 1);
+			unique_ptr<SpriteAction> m = make_unique<SpAcMove>(0, 1, 5);
+			o->addAction(m);
+			sequence.push_back(move(o));
+		}
+
+	if (complexity > 2)
+		for (int i = 0; i < ceil((float)SEQUENCE_SIZE / 40); i++)
+		{
+			unique_ptr<Sprite> o = make_unique<SpObstacle>(2, 2);
+			unique_ptr<SpriteAction> m = make_unique<SpAcMove>(1, 0, 3);
+			o->addAction(m);
+			sequence.push_back(move(o));
+		}
+	
+	for (auto &obstacle : sequence)
+	{
+		obstacle->setPosition(WINDOW_BLOCK_WIDTH + rand() % SEQUENCE_SIZE, rand() % 5);
+		target->addSprite(obstacle);
+	}
+}
+
 void FiAcGenerate::execute()
 {
 	if (blockCount == 0)
-	{
-		unique_ptr<Sprite> o1 = unique_ptr<SpObstacle>(new SpObstacle(3, 3, SEQUENCE_SIZE, 1));
-		unique_ptr<Sprite> o2 = unique_ptr<SpObstacle>(new SpObstacle(2, 2, SEQUENCE_SIZE + 10, 2));
-		unique_ptr<Sprite> o3 = unique_ptr<SpObstacle>(new SpObstacle(5, 2, SEQUENCE_SIZE + 20, 0));
-		unique_ptr<Sprite> o4 = unique_ptr<SpObstacle>(new SpObstacle(10, 3, SEQUENCE_SIZE + 28, 1));
-		unique_ptr<Sprite> o5 = unique_ptr<SpObstacle>(new SpObstacle(2, 1, SEQUENCE_SIZE + 51, 3));
-
-		target->addSprite(o1);
-		target->addSprite(o2);
-		target->addSprite(o3);
-		target->addSprite(o4);
-		target->addSprite(o5);
-	}
+		createSequence();
 
 	target->deleteOutOfBoundSprites();
 
-	blockCount += speed;
+	blockCount += target->getSpeed();
 	if (blockCount >= SEQUENCE_SIZE)
 		blockCount = 0;
+
+	incTime();
+
+	if (getTime() % COMPLEXITY_INC_TIME == 0)
+		complexity++;
+
+	if (getTime() % SPEED_INC_TIME == 0 && target->getSpeed() < MAX_SPEED)
+		target->incSpeed();
 }

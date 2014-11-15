@@ -6,6 +6,8 @@
 #include "SpriteView.h"
 #include <algorithm>
 
+#include "config.h"
+
 using namespace std;
 
 class Field
@@ -14,11 +16,14 @@ private:
 	vector<unique_ptr<Sprite>> sprites;
 	vector<unique_ptr<FieldAction>> actions;
 	unique_ptr<CollisionHandler> collisionHandler;
-
+	int speed = BASE_SPEED;
 public:
 	Field();
-	// return in C++ copy the returned object, so we need to return a reference.
-	// const's are just there for clarity
+	
+	int getSpeed();
+	void setSpeed(int speed);
+	void incSpeed();
+
 	vector<unique_ptr<Sprite>> const& getSprites() const;
 	vector<SpriteView> getSpritesView();
 

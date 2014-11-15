@@ -32,9 +32,9 @@ View::View(sf::RenderWindow &context) : context(context)
 	field.addSprite(player);
 	field.addSprite(proj);
 
-	unique_ptr<FieldAction> run = unique_ptr<FiAcMove>(new FiAcMove(BASE_SPEED));
+	unique_ptr<FieldAction> run = unique_ptr<FiAcMove>(new FiAcMove());
 	field.addAction(run);
-	unique_ptr<FieldAction> generate = unique_ptr<FiAcGenerate>(new FiAcGenerate(BASE_SPEED));
+	unique_ptr<FieldAction> generate = unique_ptr<FiAcGenerate>(new FiAcGenerate());
 	field.addAction(generate);
 }
 

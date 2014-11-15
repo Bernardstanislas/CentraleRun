@@ -10,4 +10,5 @@ protected:
 public:
 	const SpriteType::Type getType();
 	SpObstacle(int width, int height, int x, int y);
+	SpObstacle(int width, int height);
 };

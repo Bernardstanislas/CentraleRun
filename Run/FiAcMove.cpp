@@ -2,7 +2,7 @@
 #include "Field.h"
 #include "SpPlayer.h"
 
-FiAcMove::FiAcMove(int speed) : speed(speed), FieldAction()
+FiAcMove::FiAcMove() : FieldAction()
 {
 
 }
@@ -14,7 +14,7 @@ void FiAcMove::execute()
 		if (dynamic_cast<SpPlayer*>(sprite.get()) == nullptr)
 		{
 			auto XY = sprite->getPosition();
-			sprite->setPosition(XY.first - speed, XY.second);
+			sprite->setPosition(XY.first - target->getSpeed(), XY.second);
 		}
 	}
 }

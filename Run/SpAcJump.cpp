@@ -3,7 +3,7 @@
 #include <cmath>
 #include "Sprite.h"
 
-SpAcJump::SpAcJump(int height) : height(height), SpriteAction(FRAMERATE/2)
+SpAcJump::SpAcJump(int height) : height(height), SpriteAction(FRAMERATE/3)
 {
 
 }
@@ -17,9 +17,8 @@ FieldAction* SpAcJump::execute()
 	int nextHeight = (4 * height / getDuration()) * (- ((getTime() + 1) * (getTime() + 1)) / getDuration() + getTime() + 1);
 
 	incTime();
-	if (getTime() <= getDuration()){
-		SpriteAction::source->setPosition(XY.first, XY.second + nextHeight - thisHeight);
-	}
+	if (getTime() <= getDuration())
+		source->setPosition(XY.first, XY.second + nextHeight - thisHeight);
 	
 	return nullptr;
 }
