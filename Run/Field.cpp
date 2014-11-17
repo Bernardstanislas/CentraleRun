@@ -121,7 +121,14 @@ void Field::executeSpriteActions()
 {
 	for (auto const& sprite : sprites)
 	{
-		sprite->executeActions();
+		vector<unique_ptr<FieldAction>> fieldActions = sprite->executeActions();
+
+		if (!fieldActions.empty()){
+
+			for (auto &fAc : fieldActions){
+				this->addAction(fAc);
+			}
+		}
 	}
 }
 
