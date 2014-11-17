@@ -12,7 +12,7 @@ Field::Field() {
 		seqTest.FillData();
 		sequences.push_back(make_pair(0, move(seqTest.getData())));
 	}
-	
+
 }
 
 vector<TerrainGrid> Field::getSequence(int complexity)
@@ -26,8 +26,8 @@ unique_ptr<Sprite> Field::MakeRegularBlock(TerrainGrid &block)
 	int x = block.begin()->second.begin()->first;
 	int height = block.size();
 	int width = block.begin()->second.size();
-
-	return make_unique<SpObstacle>(width, height, x+WINDOW_BLOCK_WIDTH, y);
+	unique_ptr<Sprite> output = unique_ptr<SpObstacle>(new SpObstacle(width, height, x+WINDOW_BLOCK_WIDTH, y));
+	return move(output);
 }
 
 int Field::getSpeed()

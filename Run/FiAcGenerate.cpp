@@ -14,7 +14,10 @@ FiAcGenerate::FiAcGenerate() : FieldAction()
 void FiAcGenerate::createSequence()
 {
 	for (auto obstacle : target->getSequence(0))
-		target->addSprite(target->MakeRegularBlock(obstacle));
+	{
+		auto sp = target->MakeRegularBlock(obstacle);
+		target->addSprite(sp);
+	}
 }
 
 void FiAcGenerate::execute()
