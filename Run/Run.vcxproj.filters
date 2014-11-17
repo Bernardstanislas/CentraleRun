@@ -49,6 +49,15 @@
     <Filter Include="Fichiers d%27en-tête\Collisions">
       <UniqueIdentifier>{84aabce8-f7e7-497d-a36e-6b03928267ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Terrain">
+      <UniqueIdentifier>{3f25218b-11cb-4174-a387-d83d949bf594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Terrain\0">
+      <UniqueIdentifier>{65133020-bdb2-4f64-9f08-6c369dc4a1fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Terrain\5">
+      <UniqueIdentifier>{4385f17b-25dc-402e-9b26-efa54de8e2e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -123,6 +132,9 @@
     <ClCompile Include="SpriteView.cpp">
       <Filter>Fichiers sources\Classes</Filter>
     </ClCompile>
+    <ClCompile Include="TerrainSequence.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Field.h">
@@ -191,5 +203,25 @@
     <ClInclude Include="SpriteView.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="TerrainSequence.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="terrain5-1.txt">
+      <Filter>Terrain\5</Filter>
+    </Text>
+    <Text Include="terrain0-0.txt">
+      <Filter>Terrain\0</Filter>
+    </Text>
+    <Text Include="terrain0-1.txt">
+      <Filter>Terrain\0</Filter>
+    </Text>
+    <Text Include="terrain0-2.txt">
+      <Filter>Terrain\0</Filter>
+    </Text>
+    <Text Include="terrain0-3.txt">
+      <Filter>Terrain\0</Filter>
+    </Text>
   </ItemGroup>
 </Project>

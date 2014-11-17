@@ -4,11 +4,15 @@
 #include "CollisionHandler.h"
 #include "FieldAction.h"
 #include "SpriteView.h"
+#include "TerrainSequence.h"
+#include "SpObstacle.h"
 #include <algorithm>
 
 #include "config.h"
 
 using namespace std;
+
+typedef pair<int, vector<TerrainGrid>> Sequence;
 
 class Field
 {
@@ -17,9 +21,13 @@ private:
 	vector<unique_ptr<FieldAction>> actions;
 	unique_ptr<CollisionHandler> collisionHandler;
 	int speed = BASE_SPEED;
+	vector<Sequence> sequences;
 public:
 	Field();
 	
+	vector<TerrainGrid> getSequence(int complexity);
+	unique_ptr<Sprite> MakeRegularBlock(TerrainGrid &block);
+
 	int getSpeed();
 	void setSpeed(int speed);
 	void incSpeed();
