@@ -14,15 +14,19 @@ FieldAction* SpAcFireProjectile::execute()
 	if (getTime() < 1)
 	{
 		auto XY = source->getPosition();
-		unique_ptr<FieldAction> createdProj = unique_ptr<FiAcCreateProjectile>(new FiAcCreateProjectile(XY.first, XY.second));
+		
+		//this should work.
+		//unique_ptr<FieldAction> createdProj = unique_ptr<FiAcCreateProjectile>(new FiAcCreateProjectile(XY.first, XY.second));
+		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second);
 		incTime();
 
+		return createdProj;
 		// I don't get the right type, which is not normal
 		//return &createdProj;
 	}
 	else
 	{
 		incTime();
+		return nullptr;
 	}
-	return nullptr;
 }
