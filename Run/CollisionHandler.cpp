@@ -5,48 +5,48 @@
 #include "ColPlayerObstacle.h"
 
 
-CollisionHandler::CollisionHandler() 
+CollisionHandler::CollisionHandler(Field* target) : target(target)
 {
-	activeColliders = vector<shared_ptr<Collider>>();
-	activeColliders.push_back(shared_ptr<Collider>(new ColPlayerObstacle()));
-	inactiveColliders = vector<shared_ptr<Collider>>();
+	activeColliders = vector<unique_ptr<Collider>>();
+	activeColliders.push_back(unique_ptr<Collider>(new ColPlayerObstacle()));
+	inactiveColliders = vector<unique_ptr<Collider>>();
 }
 
-CollisionHandler::~CollisionHandler() 
+CollisionHandler::~CollisionHandler()
 {
 
 }
 
-void CollisionHandler::executeCollider(unique_ptr<Sprite> &sp1, unique_ptr<Sprite> &sp2) 
+void CollisionHandler::executeCollider(unique_ptr<Sprite> &sp1, unique_ptr<Sprite> &sp2)
 {
-	if (areColliding(sp1, sp2)) 
+	if (areColliding(sp1, sp2))
 	{
-		shared_ptr<Collider> collider = this->getCollider(sp1, sp2);
-		if (collider) 
-			collider->collide(sp1, sp2);
+		unique_ptr<Collider>& collider = this->getCollider(sp1, sp2);
+		if (collider)
+			collider->collide(sp1, sp2, target);
 	}
 }
 
-shared_ptr<Collider> CollisionHandler::getCollider(const unique_ptr<Sprite> &sp1, const unique_ptr<Sprite> &sp2) const 
+unique_ptr<Collider>& CollisionHandler::getCollider(const unique_ptr<Sprite> &sp1, const unique_ptr<Sprite> &sp2)
 {
 	const SpriteType::Type type1 = this->getSpriteType(sp1);
 	const SpriteType::Type type2 = this->getSpriteType(sp2);
-	
-	for(auto const& collider : activeColliders) 
+	for(auto& collider : activeColliders)
 	{
 		const pair<SpriteType::Type, SpriteType::Type> signature = collider->getSignature();
-		if ((signature.first == type1 && signature.second == type2) || (signature.first == type2 && signature.second == type1)) 
+		if ((signature.first == type1 && signature.second == type2) || (signature.first == type2 && signature.second == type1))
 			return collider;
 	}
-	return shared_ptr<Collider>(nullptr);
+	auto null_output = unique_ptr<Collider>(nullptr);
+	return null_output;
 }
 
-SpriteType::Type CollisionHandler::getSpriteType(const unique_ptr<Sprite> &sp) const 
+SpriteType::Type CollisionHandler::getSpriteType(const unique_ptr<Sprite> &sp) const
 {
 	return sp->getType();
 }
 
-bool CollisionHandler::areColliding(const unique_ptr<Sprite>& sp1, const unique_ptr<Sprite>& sp2) const 
+bool CollisionHandler::areColliding(const unique_ptr<Sprite>& sp1, const unique_ptr<Sprite>& sp2) const
 {
 	pair<int, int> position1 = sp1->getPosition();
 	pair<int, int> position2 = sp2->getPosition();

@@ -3,7 +3,7 @@
 Field::Field() {
 	sprites = vector<unique_ptr<Sprite>>();
 	actions = vector<unique_ptr<FieldAction>>();
-	collisionHandler = unique_ptr<CollisionHandler>(new CollisionHandler());
+	collisionHandler = unique_ptr<CollisionHandler>(new CollisionHandler(this));
 
 	for (int i = 0; i < SEQ_C0_COUNT; i++)
 	{
