@@ -105,10 +105,15 @@ void Field::deleteAction(unique_ptr<FieldAction> &action)
 
 void Field::executeFieldActions()
 {
-	for (auto const& action : actions)
+	auto action = actions.begin();
+	while (action != actions.end())
 	{
-		action->execute();
-		action->isOver();
+		(*action)->execute();
+		// Deleting action if it's over
+		if ((*action)->isOver())
+			action = actions.erase(action);
+		else
+			action++;
 	}
 }
 

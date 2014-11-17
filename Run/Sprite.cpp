@@ -52,9 +52,13 @@ vector<unique_ptr<FieldAction>> Sprite::executeActions()
 	auto spAction = spActions.begin();
 	while (spAction != spActions.end())
 	{
-		unique_ptr<FieldAction> fieldAction((*spAction)->execute());
-        // To do when the FieldAction class is ready: only add if fieldAction is not empty/null
-        fieldActions.push_back(move(fieldAction));
+		auto fAction = (*spAction)->execute();
+		// FieldAction generation if it exists (for CreateProjectile mostly)
+		if (fAction != nullptr)
+		{
+			unique_ptr<FieldAction> fieldAction(fAction);
+			fieldActions.push_back(move(fieldAction));
+		}
 		
 		// Deleting action if it's over
 		if ((*spAction)->isOver())
