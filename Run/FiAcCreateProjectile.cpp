@@ -14,6 +14,7 @@ void FiAcCreateProjectile::execute()
 	int t = this->getTime();
 	int d = this->getDuration();
 
+	//if structure not mandatory any longer.
 	if ( t < d){
 		
 		unique_ptr<Sprite> newP = unique_ptr<SpProjectile>(new SpProjectile(x, y));
@@ -24,5 +25,4 @@ void FiAcCreateProjectile::execute()
 		incTime();
 	}
 
-	//cout << "elapsed time is" << t << "duration is" << d << endl;
 }
