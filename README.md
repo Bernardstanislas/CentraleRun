@@ -3,4 +3,4 @@ CentraleRun [![Build Status](https://travis-ci.org/Bernardstanislas/CentraleRun.
 
 Third year C++ project
 
-Infinite Runner
+ENDLESS RUNNER
