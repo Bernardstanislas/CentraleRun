@@ -117,6 +117,8 @@ void Field::executeFieldActions()
 	}
 }
 
+//this function executes the SpriteActions and gets the FieldActions created.
+//Those fieldActions are then put in the Field action list.
 void Field::executeSpriteActions()
 {
 	for (auto const& sprite : sprites)
