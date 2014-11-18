@@ -6,6 +6,7 @@
 #include "View.h"
 #include "SpPlayer.h"
 #include "SpAcJump.h"
+#include "SpAcFireProjectile.h"
 
 int main()
 {
@@ -43,6 +44,30 @@ int main()
 							}
 						}
 						if (!dont) sprite->addAction(saut);
+					}
+				}
+			}
+
+			// Fire
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::E){
+				for (auto &sprite : mainView.field.getSprites())
+				{
+					if (dynamic_cast<SpPlayer*>(sprite.get()) != nullptr)
+					{
+						unique_ptr<SpriteAction> fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile());
+						bool dont = false;
+						for (auto const& action : sprite->getActions())
+						{
+							if (dynamic_cast<SpAcFireProjectile*>(action.get()) != nullptr)
+							{
+								dont = true;
+								break;
+							}
+						}
+						if (!dont) {
+							sprite->addAction(fire); 
+							//cout << "firebb !!" << endl;
+						}
 					}
 				}
 			}

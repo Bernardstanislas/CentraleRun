@@ -105,18 +105,32 @@ void Field::deleteAction(unique_ptr<FieldAction> &action)
 
 void Field::executeFieldActions()
 {
-	for (auto const& action : actions)
+	auto action = actions.begin();
+	while (action != actions.end())
 	{
-		action->execute();
-		action->isOver();
+		(*action)->execute();
+		// Deleting action if it's over
+		if ((*action)->isOver())
+			action = actions.erase(action);
+		else
+			action++;
 	}
 }
 
+//this function executes the SpriteActions and gets the FieldActions created.
+//Those fieldActions are then put in the Field action list.
 void Field::executeSpriteActions()
 {
 	for (auto const& sprite : sprites)
 	{
-		sprite->executeActions();
+		vector<unique_ptr<FieldAction>> fieldActions = sprite->executeActions();
+
+		if (!fieldActions.empty()){
+
+			for (auto &fAc : fieldActions){
+				this->addAction(fAc);
+			}
+		}
 	}
 }
 
