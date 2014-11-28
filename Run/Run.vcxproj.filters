@@ -58,6 +58,9 @@
     <Filter Include="Terrain\5">
       <UniqueIdentifier>{4385f17b-25dc-402e-9b26-efa54de8e2e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Terrain\1">
+      <UniqueIdentifier>{24967d09-07bb-4eb0-9c19-27149a2f6d27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -206,6 +209,9 @@
     <ClInclude Include="TerrainSequence.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Direction.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="terrain5-1.txt">
@@ -222,6 +228,18 @@
     </Text>
     <Text Include="terrain0-3.txt">
       <Filter>Terrain\0</Filter>
+    </Text>
+    <Text Include="terrain1-1.txt">
+      <Filter>Terrain\1</Filter>
+    </Text>
+    <Text Include="terrain1-2.txt">
+      <Filter>Terrain\1</Filter>
+    </Text>
+    <Text Include="terrain1-3.txt">
+      <Filter>Terrain\1</Filter>
+    </Text>
+    <Text Include="terrain1-0.txt">
+      <Filter>Terrain\1</Filter>
     </Text>
   </ItemGroup>
 </Project>
