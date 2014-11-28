@@ -32,9 +32,24 @@ unique_ptr<Sprite> Field::MakeRegularBlock(TerrainGrid &block)
 	
 	char fireDirection = block.begin()->second.begin()->second.first;
 	if (fireDirection != 'X')
-	{	
-		unique_ptr<SpriteAction> fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile(FRAMERATE/2));
-		///////// TOTOOTTOTOTOTOOODODDODOODODOD
+	{
+		Direction direction;
+		switch (fireDirection)
+		{
+		case 'U':
+			direction = Direction::UP;
+			break;
+		case 'D':
+			direction = Direction::DOWN;
+			break;
+		case 'L':
+			direction = Direction::LEFT;
+			break;
+		case 'R':
+			direction = Direction::RIGHT;
+			break;
+		}
+		unique_ptr<SpriteAction> fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile(direction, FRAMERATE/2));
 		output->addAction(fire);
 	}
 	return move(output);
