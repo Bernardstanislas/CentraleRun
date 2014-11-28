@@ -5,7 +5,7 @@
 
 /*We give a duration greater than 1 to the Action, in order to determine a firerate.
  Here, the sprite will only fire projectiles twice a second (roughly).*/
-SpAcFireProjectile::SpAcFireProjectile(int fireRate) : fireRate(fireRate), SpriteAction((fireRate == 0)?1:-1) 
+SpAcFireProjectile::SpAcFireProjectile(Direction direction, int fireRate) : direction(direction), fireRate(fireRate), SpriteAction((fireRate == 0)?1:-1) 
 {
 }
 
@@ -15,7 +15,7 @@ FieldAction* SpAcFireProjectile::execute()
 	{
 		auto XY = source->getPosition();
 
-		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second, Direction::RIGHT);
+		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second, direction);
 		incTime();
 
 		return createdProj;
@@ -24,7 +24,7 @@ FieldAction* SpAcFireProjectile::execute()
 	{
 		auto XY = source->getPosition();
 		
-		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second, Direction::RIGHT);
+		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second, direction);
 		incTime();
 
 		return createdProj;

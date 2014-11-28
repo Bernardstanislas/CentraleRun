@@ -6,5 +6,5 @@ class SpProjectile :
 {
 public:
 	const SpriteType::Type getType();
-	SpProjectile(int x, int y);
+	SpProjectile(int x, int y, int state);
 };

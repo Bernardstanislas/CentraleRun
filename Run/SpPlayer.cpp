@@ -7,7 +7,7 @@ SpPlayer::SpPlayer()
 	this->height = 2;
 	this->x = 3;
 	this->y = 0;
-	this->state = 2;
+	this->state = 1;
 	this->hp = 1;
 }
 

@@ -7,7 +7,8 @@ class SpAcFireProjectile :
 {
 private:
 	int fireRate;
+	Direction direction;
 public:
-	SpAcFireProjectile(int fireRate = 0);
+	SpAcFireProjectile(Direction direction = Direction::RIGHT, int fireRate = 0);
 	FieldAction* execute();
 };
