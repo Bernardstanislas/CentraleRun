@@ -73,3 +73,8 @@ vector<unique_ptr<SpriteAction>> const& Sprite::getActions() const
 {
 	return spActions;
 }
+
+unique_ptr<SpriteAction> const& Sprite::getAction(unique_ptr<SpriteAction> &action) const
+{
+	return *find(spActions.begin(), spActions.end(), action);
+}

@@ -75,6 +75,11 @@ vector<unique_ptr<Sprite>> const& Field::getSprites() const
 	return sprites;
 }
 
+unique_ptr<Sprite> const& Field::getSprite(unique_ptr<Sprite> &sprite) const
+{
+	return *find(sprites.begin(), sprites.end(), sprite);
+}
+
 vector<SpriteView> Field::getSpritesView()
 {
 	vector<SpriteView> output;

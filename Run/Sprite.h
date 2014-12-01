@@ -31,4 +31,5 @@ public:
 	void deleteAction(unique_ptr<SpriteAction> &spAction);
 	vector<unique_ptr<FieldAction>> executeActions();
 	vector<unique_ptr<SpriteAction>> const& getActions() const;
+	unique_ptr<SpriteAction> const& getAction(unique_ptr<SpriteAction> &action) const;
 };
