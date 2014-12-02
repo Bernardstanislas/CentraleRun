@@ -19,7 +19,8 @@ Field::Field() {
 
 vector<TerrainGrid> Field::getSequence(int complexity)
 {
-	return sequences[rand() % ((complexity+1)*SEQ_C0_COUNT)].second;
+	int c = (complexity > 1) ? 1 : complexity;
+	return sequences[rand() % ((c+1)*SEQ_C0_COUNT)].second;
 }
 
 pSprite Field::MakeRegularBlock(TerrainGrid &block)
