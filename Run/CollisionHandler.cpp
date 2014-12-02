@@ -22,8 +22,8 @@ void CollisionHandler::executeCollider(unique_ptr<Sprite> &sp1, unique_ptr<Sprit
 	if (areColliding(sp1, sp2))
 	{
 		unique_ptr<Collider>& collider = this->getCollider(sp1, sp2);
-		if (collider)
-			collider->collide(sp1, sp2, target);
+		//if (collider)
+			//collider->collide(sp1, sp2, target);
 	}
 }
 
