@@ -33,6 +33,7 @@ public:
 	void incSpeed();
 
 	vector<unique_ptr<Sprite>> const& getSprites() const;
+
 	vector<SpriteView> getSpritesView();
 
 	void addSprite(unique_ptr<Sprite> &sprite);

@@ -1,12 +1,12 @@
 #include "SpProjectile.h"
 
-SpProjectile::SpProjectile(int x, int y)
+SpProjectile::SpProjectile(int x, int y, int state)
 {
 	this->x = x;
 	this->y = y;
 	this->width = 1;
 	this->height = 1;
-	this->state = 1;
+	this->state = state;
 }
 
 const SpriteType::Type SpProjectile::getType() {

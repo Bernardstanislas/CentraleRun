@@ -5,24 +5,29 @@
 
 /*We give a duration greater than 1 to the Action, in order to determine a firerate.
  Here, the sprite will only fire projectiles twice a second (roughly).*/
-SpAcFireProjectile::SpAcFireProjectile() : SpriteAction(FRAMERATE/2) 
+SpAcFireProjectile::SpAcFireProjectile(Direction direction, int fireRate) : direction(direction), fireRate(fireRate), SpriteAction((fireRate == 0)?1:-1) 
 {
 }
 
 FieldAction* SpAcFireProjectile::execute()
 {
-	if (getTime() < 1)
+	if (fireRate == 0)
 	{
 		auto XY = source->getPosition();
-		
-		//this should work.
-		//unique_ptr<FieldAction> createdProj = unique_ptr<FiAcCreateProjectile>(new FiAcCreateProjectile(XY.first, XY.second));
-		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second);
+
+		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second, direction);
 		incTime();
 
 		return createdProj;
-		// I don't get the right type, which is not normal
-		//return &createdProj;
+	}
+	else if (getTime() % fireRate == 0)
+	{
+		auto XY = source->getPosition();
+		
+		FieldAction* createdProj = new FiAcCreateProjectile(XY.first, XY.second, direction);
+		incTime();
+
+		return createdProj;
 	}
 	else
 	{

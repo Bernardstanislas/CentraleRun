@@ -4,25 +4,23 @@
 #include "Field.h"
 #include <iostream>
 
-FiAcCreateProjectile::FiAcCreateProjectile(int x, int y) : x(x), y(y), FieldAction(1)
+FiAcCreateProjectile::FiAcCreateProjectile(int x, int y, Direction direction) : x(x), y(y), direction(direction), FieldAction(1)
 {
 
 }
 
 void FiAcCreateProjectile::execute()
 {
-	int t = this->getTime();
-	int d = this->getDuration();
+	int state;
+	if (direction == Direction::UP || direction == Direction::DOWN)
+		state = 3;
+	else
+		state = 2;
+	unique_ptr<Sprite> newP = unique_ptr<SpProjectile>(new SpProjectile(x, y, state));
+	unique_ptr<SpriteAction> move = unique_ptr<SpAcMove>(new SpAcMove(10, direction));
+	newP->addAction(move);
+	newP->executeNewActions();
+	target->addSprite(newP);
 
-	//if structure not mandatory any longer.
-	if ( t < d){
-		
-		unique_ptr<Sprite> newP = unique_ptr<SpProjectile>(new SpProjectile(x, y));
-		unique_ptr<SpriteAction> move = unique_ptr<SpAcMove>(new SpAcMove(10));
-		newP->addAction(move);
-		target->addSprite(newP);
-
-		incTime();
-	}
-
+	incTime();
 }

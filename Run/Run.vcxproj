@@ -118,6 +118,7 @@
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="ColPlayerObstacle.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="Direction.h" />
     <ClInclude Include="FiAcCreateProjectile.h" />
     <ClInclude Include="FiAcGenerate.h" />
     <ClInclude Include="FiAcMove.h" />
@@ -142,6 +143,10 @@
     <Text Include="terrain0-0.txt" />
     <Text Include="terrain0-1.txt" />
     <Text Include="terrain0-2.txt" />
+    <Text Include="terrain1-0.txt" />
+    <Text Include="terrain1-1.txt" />
+    <Text Include="terrain1-2.txt" />
+    <Text Include="terrain1-3.txt" />
     <Text Include="terrain5-1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

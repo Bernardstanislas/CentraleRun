@@ -74,12 +74,17 @@ void View::draw()
 			shape.setFillColor(sf::Color::Blue);
 			break;
 		case 1:
-			shape.setFillColor(sf::Color::Red);
-			shape.setSize(sf::Vector2f(shape.getSize().x, shape.getSize().y/4));
-			break;
-		case 2:
 			shape.setFillColor(sf::Color::Green);
 			break;
+		case 2:
+			shape.setFillColor(sf::Color::Red);
+			shape.setSize(sf::Vector2f(shape.getSize().x, shape.getSize().y / 4));
+			break;
+		case 3:
+			shape.setFillColor(sf::Color::Red);
+			shape.setSize(sf::Vector2f(shape.getSize().x / 4, shape.getSize().y));
+			break;
+		
 		}
 		context.draw(shape);
 	}

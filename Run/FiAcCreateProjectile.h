@@ -2,6 +2,7 @@
 
 #include "FieldAction.h"
 #include "SpriteType.h"
+#include "Direction.h"
 
 class FiAcCreateProjectile :
 	public FieldAction
@@ -9,7 +10,8 @@ class FiAcCreateProjectile :
 protected:
 	int x;
 	int y;
+	Direction direction;
 public:
-	FiAcCreateProjectile(int x, int y);
+	FiAcCreateProjectile(int x, int y, Direction direction = Direction::RIGHT);
 	void execute();
 };

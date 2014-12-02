@@ -37,7 +37,7 @@ int main()
 						bool dont = false;
 						for (auto const& action : sprite->getActions())
 						{
-							if (dynamic_cast<SpAcJump*>(action.get()) != nullptr)
+							if (dynamic_cast<SpAcJump*>(action.first.get()) != nullptr)
 							{
 								dont = true;
 								break;
@@ -58,16 +58,14 @@ int main()
 						bool dont = false;
 						for (auto const& action : sprite->getActions())
 						{
-							if (dynamic_cast<SpAcFireProjectile*>(action.get()) != nullptr)
+							if (dynamic_cast<SpAcFireProjectile*>(action.first.get()) != nullptr)
 							{
 								dont = true;
 								break;
 							}
 						}
-						if (!dont) {
+						if (!dont)
 							sprite->addAction(fire); 
-							//cout << "firebb !!" << endl;
-						}
 					}
 				}
 			}
