@@ -19,7 +19,7 @@ Field::Field() {
 
 vector<TerrainGrid> Field::getSequence(int complexity)
 {
-	return sequences[rand() % (2*SEQ_C0_COUNT)].second;
+	return sequences[rand() % ((complexity+1)*SEQ_C0_COUNT)].second;
 }
 
 pSprite Field::MakeRegularBlock(TerrainGrid &block)
@@ -29,10 +29,12 @@ pSprite Field::MakeRegularBlock(TerrainGrid &block)
 	int height = block.size();
 	int width = block.begin()->second.size();
 	pSprite output = make_unique<SpObstacle>(width, height, x+WINDOW_BLOCK_WIDTH, y);
-	
+
 	char fireDirection = block.begin()->second.begin()->second.first;
 	if (fireDirection != 'X')
 	{
+		output->setState(4); // Red block
+
 		Direction direction;
 		switch (fireDirection)
 		{
@@ -75,15 +77,6 @@ vector<pSprite> const& Field::getSprites() const
 	return sprites;
 }
 
-vector<SpriteView> Field::getSpritesView()
-{
-	vector<SpriteView> output;
-	for (auto const& sprite : sprites)
-		output.push_back(SpriteView(sprite.get(), sprite->getSize().first, sprite->getSize().second, sprite->getPosition().first, sprite->getPosition().second));
-
-	return output;
-}
-
 void Field::addSprite(pSprite &sprite)
 {
 	// move gives ownership of the unique_ptr to the sprites vector
@@ -111,6 +104,12 @@ void Field::deleteOutOfBoundSprites()
 		),
 		this->sprites.end()
 		);
+}
+
+void Field::applySpritesPosition()
+{
+	for (auto &sprite : sprites)
+		sprite->applyPosition();
 }
 
 void Field::addAction(pFieldAction &action)

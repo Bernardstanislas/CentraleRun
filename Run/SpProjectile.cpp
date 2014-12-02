@@ -4,8 +4,10 @@ SpProjectile::SpProjectile(int x, int y, int state)
 {
 	this->x = x;
 	this->y = y;
-	this->width = 1;
-	this->height = 1;
+	nx = x;
+	ny = y;
+	width = 1;
+	height = 1;
 	this->state = state;
 }
 

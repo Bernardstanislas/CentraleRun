@@ -48,7 +48,7 @@ FieldAction* SpAcMove::execute()
 		break;
 	}
 
-	source->setPosition(newX, newY);
+	source->setNPosition(newX, newY);
 	
 	incTime();
 

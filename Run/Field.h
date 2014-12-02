@@ -3,7 +3,6 @@
 #include "Sprite.h"
 #include "CollisionHandler.h"
 #include "FieldAction.h"
-#include "SpriteView.h"
 #include "TerrainSequence.h"
 #include "SpObstacle.h"
 #include <algorithm>
@@ -34,11 +33,11 @@ public:
 
 	vector<pSprite> const& getSprites() const;
 
-	vector<SpriteView> getSpritesView();
-
 	void addSprite(pSprite &sprite);
 	void deleteSprite(pSprite &sprite);
 	void deleteOutOfBoundSprites();
+	void applySpritesPosition();
+
 	void addAction(pFieldAction &action);
 	void deleteAction(pFieldAction &action);
 

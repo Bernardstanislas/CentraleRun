@@ -36,35 +36,17 @@ void View::draw()
 	for (auto const& sprite : field.getSprites())
 	{
 		pair<int, int> pos = sprite->getPosition();
+		pair<int, int> npos = sprite->getNPosition();
+
 		pair<int, int> size = sprite->getSize();
 		int state = sprite->getState();
 
-		vector<SpriteView>::iterator prevSprite = find_if(
-			prevSprites.begin(),
-			prevSprites.end(),
-			[&sprite](SpriteView spriteV)
-			{
-				return spriteV.sprite == sprite.get();
-			});
-		pair<int, int> ppos;
-		pair<int, int> psize;
-		if (prevSprite != prevSprites.end())
-		{
-			ppos = (*prevSprite).getPosition();
-			psize = (*prevSprite).getSize();
-		}
-		else
-		{
-			ppos = pos;
-			psize = size;
-		}
-
-		float width = (psize.first + (size.first - psize.first) * (float)frameSkip / FRAMESKIP) * blockSize;
-		float height = (psize.second + (size.second - psize.second) * (float)frameSkip / FRAMESKIP) * blockSize;
+		float width = size.first * blockSize;
+		float height = size.second * blockSize;
 
 		// Our block origin is bottom-left corner and SMFL's is top-left.
-		float x = (ppos.first + (pos.first - ppos.first) * (float)frameSkip / FRAMESKIP) * blockSize;
-		float y = context.getSize().y - (ppos.second + (pos.second - ppos.second) * (float)frameSkip / FRAMESKIP) * blockSize - height;
+		float x = (pos.first + (npos.first - pos.first) * (float)frameSkip / FRAMESKIP) * blockSize;
+		float y = context.getSize().y - (pos.second + (npos.second - pos.second) * (float)frameSkip / FRAMESKIP) * blockSize - height;
 
 		sf::RectangleShape shape(sf::Vector2f(width, height));
 		shape.setPosition(sf::Vector2f(x,y));
@@ -84,8 +66,11 @@ void View::draw()
 			shape.setFillColor(sf::Color::Red);
 			shape.setSize(sf::Vector2f(shape.getSize().x / 4, shape.getSize().y));
 			break;
-		
+		case 4:
+			shape.setFillColor(sf::Color::Red);
+			break;
 		}
+
 		context.draw(shape);
 	}
 }

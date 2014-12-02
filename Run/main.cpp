@@ -37,7 +37,7 @@ int main()
 						bool dont = false;
 						for (auto const& action : sprite->getActions())
 						{
-							if (dynamic_cast<SpAcJump*>(action.first.get()) != nullptr)
+							if (dynamic_cast<SpAcJump*>(action.get()) != nullptr)
 							{
 								dont = true;
 								break;
@@ -58,7 +58,7 @@ int main()
 						bool dont = false;
 						for (auto const& action : sprite->getActions())
 						{
-							if (dynamic_cast<SpAcFireProjectile*>(action.first.get()) != nullptr)
+							if (dynamic_cast<SpAcFireProjectile*>(action.get()) != nullptr)
 							{
 								dont = true;
 								break;
@@ -76,10 +76,12 @@ int main()
 		if (mainView.frameSkip < VIEW_FRAMERATE / FRAMERATE - 1) mainView.frameSkip++;
 		else
 		{
-			mainView.prevSprites = mainView.field.getSpritesView();
+			mainView.field.applySpritesPosition();
+			mainView.field.executeCollisions();
+
 			mainView.field.executeSpriteActions();
 			mainView.field.executeFieldActions();
-			mainView.field.executeCollisions();
+			
 			mainView.frameSkip = 0;
 		}
 

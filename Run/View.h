@@ -13,7 +13,6 @@ private:
 	int blockSize = BLOCKSIZE;
 public:
 	Field field;
-	vector<SpriteView> prevSprites;
 	int frameSkip = 0;
 	View(sf::RenderWindow &context);
 	void draw();
