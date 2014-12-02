@@ -7,6 +7,8 @@ SpObstacle::SpObstacle(int width, int height, int x, int y)
 	this->height = height;
 	this->x = x;
 	this->y = y;
+	nx = x;
+	ny = y;
 	this->state = 0;
 	this->hp = 3;
 }

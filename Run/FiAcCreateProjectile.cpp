@@ -16,10 +16,33 @@ void FiAcCreateProjectile::execute()
 		state = 3;
 	else
 		state = 2;
-	unique_ptr<Sprite> newP = unique_ptr<SpProjectile>(new SpProjectile(x, y, state));
-	unique_ptr<SpriteAction> move = unique_ptr<SpAcMove>(new SpAcMove(10, direction));
+	pSprite newP = make_unique<SpProjectile>(x, y, state);
+	pSpriteAction move = make_unique<SpAcMove>(PROJECTILE_SPEED, direction);
 	newP->addAction(move);
-	newP->executeNewActions();
+
+	// Setting up manually the next projectile position. 
+	// The next ones will be handled by the move action, but not this one since it won't be executed before the next frame.
+	int nx = x;
+	int ny = y;
+
+	switch (direction)
+	{
+	case Direction::DOWN:
+		ny -= PROJECTILE_SPEED;
+		break;
+	case Direction::UP:
+		ny += PROJECTILE_SPEED;
+		break;
+	case Direction::LEFT:
+		nx -= PROJECTILE_SPEED;
+		break;
+	case Direction::RIGHT:
+		nx += PROJECTILE_SPEED;
+		break;
+	}
+	nx -= target->getSpeed();
+
+	newP->setNPosition(nx, ny);
 	target->addSprite(newP);
 
 	incTime();

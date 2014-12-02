@@ -132,9 +132,6 @@
     <ClCompile Include="ColPlayerObstacle.cpp">
       <Filter>Fichiers sources\Classes\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteView.cpp">
-      <Filter>Fichiers sources\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="TerrainSequence.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -202,9 +199,6 @@
     </ClInclude>
     <ClInclude Include="ColPlayerObstacle.h">
       <Filter>Fichiers d%27en-tête\Collisions</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteView.h">
-      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="TerrainSequence.h">
       <Filter>Fichiers d%27en-tête</Filter>

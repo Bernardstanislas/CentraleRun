@@ -9,7 +9,24 @@ void Sprite::setPosition(int x, int y)
 
 pair<int, int> Sprite::getPosition()
 {
-	return pair<int, int>(this->x, this->y);
+	return pair<int, int>(x, y);
+}
+
+void Sprite::setNPosition(int nx, int ny)
+{
+	this->nx = nx;
+	this->ny = ny;
+}
+
+pair<int, int> Sprite::getNPosition()
+{
+	return pair<int, int>(nx, ny);
+}
+
+void Sprite::applyPosition()
+{
+	x = nx;
+	y = ny;
 }
 
 void Sprite::setSize(int width, int height)
@@ -33,36 +50,29 @@ int Sprite::getState()
 	return this->state;
 }
 
-void Sprite::addAction(unique_ptr<SpriteAction> &spAction)
+void Sprite::addAction(pSpriteAction &spAction)
 {
 	spAction->setSource(this);
-	spActions.push_back(make_pair(move(spAction),false));
+	spActions.push_back(move(spAction));
 }
 
-vector<unique_ptr<FieldAction>> Sprite::executeActions()
+vector<pFieldAction> Sprite::executeActions()
 {
-	vector<unique_ptr<FieldAction>> fieldActions;
-
-	for (auto &action : spActions)
-	{
-		action.second = false;
-	}
+	vector<pFieldAction> fieldActions;
 
 	auto spAction = spActions.begin();
 	while (spAction != spActions.end())
 	{
-		auto fAction = spAction->first->execute();
+		auto fAction = (*spAction)->execute();
 		// FieldAction generation if it exists (for CreateProjectile mostly)
 		if (fAction != nullptr)
 		{
-			unique_ptr<FieldAction> fieldAction(fAction);
+			pFieldAction fieldAction(fAction);
 			fieldActions.push_back(move(fieldAction));
 		}
 		
-		spAction->second = true;
-
 		// Deleting action if it's over
-		if (spAction->first->isOver())
+		if ((*spAction)->isOver())
 			spAction = spActions.erase(spAction);
 		else
 			spAction++;
@@ -70,29 +80,7 @@ vector<unique_ptr<FieldAction>> Sprite::executeActions()
     return fieldActions; 
 }
 
-void Sprite::executeNewActions()
-{
-	auto spAction = spActions.begin();
-	while (spAction != spActions.end())
-	{
-		if (!spAction->second)
-		{
-			cout << "lol" << endl;
- 			spAction->first->execute();
-			spAction->second = true;
-
-			// Deleting action if it's over
-			if (spAction->first->isOver())
-				spAction = spActions.erase(spAction);
-			else
-				spAction++;
-		}
-		else
-			spAction++;
-	}
-}
-
-vector<pair<unique_ptr<SpriteAction>,bool>> const& Sprite::getActions() const
+vector<pSpriteAction> const& Sprite::getActions() const
 {
 	return spActions;
 }

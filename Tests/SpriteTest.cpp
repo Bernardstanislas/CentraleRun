@@ -21,15 +21,15 @@ TEST(Sprite, Instance) {
         sprite->addAction(spAction);
     });
     ASSERT_EQ({
-        sprite->getActions(), vector<unique_ptr<SpriteAction>>(*spAction)
+        sprite->getActions(), vector<pSpriteAction>(*spAction)
     });
     ASSERT_EQ({
-        sprite->executeActions(), vector<unique_ptr<FieldAction>>(*spAction)
+        sprite->executeActions(), vector<pFieldAction>(*spAction)
     });
     EXPECT_NO_THROW({
         sprite->deleteAction(spAction);
     });
     ASSERT_EQ({
-        sprite->getActions(), vector<unique_ptr<SpriteAction>>()
+        sprite->getActions(), vector<pSpriteAction>()
     });
 }

@@ -13,8 +13,8 @@ void FiAcMove::execute()
 	{
 		if (dynamic_cast<SpPlayer*>(sprite.get()) == nullptr)
 		{
-			auto XY = sprite->getPosition();
-			sprite->setPosition(XY.first - target->getSpeed(), XY.second);
+			auto XY = sprite->getNPosition(); // Position will already be updated by previous SpMoves
+			sprite->setNPosition(XY.first - target->getSpeed(), XY.second);
 		}
 	}
 }

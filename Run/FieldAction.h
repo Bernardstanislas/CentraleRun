@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Action.h"
+#include <memory>
 
 class Field;
 
@@ -14,3 +15,5 @@ public:
 	virtual void execute() = 0;
 	void setTarget(Field* target);
 };
+
+typedef std::unique_ptr<FieldAction> pFieldAction;

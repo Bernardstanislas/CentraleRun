@@ -18,7 +18,7 @@ FieldAction* SpAcJump::execute()
 
 	incTime();
 	if (getTime() <= getDuration())
-		source->setPosition(XY.first, XY.second + nextHeight - thisHeight);
+		source->setNPosition(XY.first, XY.second + nextHeight - thisHeight);
 	
 	return nullptr;
 }
