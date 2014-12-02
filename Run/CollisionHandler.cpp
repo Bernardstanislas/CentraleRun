@@ -7,9 +7,9 @@
 
 CollisionHandler::CollisionHandler(Field* target) : target(target)
 {
-	activeColliders = vector<unique_ptr<Collider>>();
-	activeColliders.push_back(unique_ptr<Collider>(new ColPlayerObstacle()));
-	inactiveColliders = vector<unique_ptr<Collider>>();
+	activeColliders = vector<pCollider>();
+	activeColliders.push_back(pCollider(new ColPlayerObstacle()));
+	inactiveColliders = vector<pCollider>();
 }
 
 CollisionHandler::~CollisionHandler()
@@ -17,17 +17,17 @@ CollisionHandler::~CollisionHandler()
 
 }
 
-void CollisionHandler::executeCollider(unique_ptr<Sprite> &sp1, unique_ptr<Sprite> &sp2)
+void CollisionHandler::executeCollider(pSprite &sp1, pSprite &sp2)
 {
 	if (areColliding(sp1, sp2))
 	{
-		unique_ptr<Collider>& collider = this->getCollider(sp1, sp2);
+		pCollider& collider = this->getCollider(sp1, sp2);
 		//if (collider)
 			//collider->collide(sp1, sp2, target);
 	}
 }
 
-unique_ptr<Collider>& CollisionHandler::getCollider(const unique_ptr<Sprite> &sp1, const unique_ptr<Sprite> &sp2)
+pCollider& CollisionHandler::getCollider(const pSprite &sp1, const pSprite &sp2)
 {
 	const SpriteType::Type type1 = this->getSpriteType(sp1);
 	const SpriteType::Type type2 = this->getSpriteType(sp2);
@@ -37,16 +37,16 @@ unique_ptr<Collider>& CollisionHandler::getCollider(const unique_ptr<Sprite> &sp
 		if ((signature.first == type1 && signature.second == type2) || (signature.first == type2 && signature.second == type1))
 			return collider;
 	}
-	auto null_output = unique_ptr<Collider>(nullptr);
+	auto null_output = pCollider(nullptr);
 	return null_output;
 }
 
-SpriteType::Type CollisionHandler::getSpriteType(const unique_ptr<Sprite> &sp) const
+SpriteType::Type CollisionHandler::getSpriteType(const pSprite &sp) const
 {
 	return sp->getType();
 }
 
-bool CollisionHandler::areColliding(const unique_ptr<Sprite>& sp1, const unique_ptr<Sprite>& sp2) const
+bool CollisionHandler::areColliding(const pSprite& sp1, const pSprite& sp2) const
 {
 	pair<int, int> position1 = sp1->getPosition();
 	pair<int, int> position2 = sp2->getPosition();

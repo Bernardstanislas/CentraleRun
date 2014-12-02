@@ -33,15 +33,15 @@ int Sprite::getState()
 	return this->state;
 }
 
-void Sprite::addAction(unique_ptr<SpriteAction> &spAction)
+void Sprite::addAction(pSpriteAction &spAction)
 {
 	spAction->setSource(this);
 	spActions.push_back(make_pair(move(spAction),false));
 }
 
-vector<unique_ptr<FieldAction>> Sprite::executeActions()
+vector<pFieldAction> Sprite::executeActions()
 {
-	vector<unique_ptr<FieldAction>> fieldActions;
+	vector<pFieldAction> fieldActions;
 
 	for (auto &action : spActions)
 	{
@@ -55,7 +55,7 @@ vector<unique_ptr<FieldAction>> Sprite::executeActions()
 		// FieldAction generation if it exists (for CreateProjectile mostly)
 		if (fAction != nullptr)
 		{
-			unique_ptr<FieldAction> fieldAction(fAction);
+			pFieldAction fieldAction(fAction);
 			fieldActions.push_back(move(fieldAction));
 		}
 		
@@ -91,7 +91,7 @@ void Sprite::executeNewActions()
 	}
 }
 
-vector<pair<unique_ptr<SpriteAction>,bool>> const& Sprite::getActions() const
+vector<pair<pSpriteAction,bool>> const& Sprite::getActions() const
 {
 	return spActions;
 }

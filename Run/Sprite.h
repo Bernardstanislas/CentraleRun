@@ -16,7 +16,7 @@ protected:
 	int y;
 	int width;
 	int height;
-	vector<pair<unique_ptr<SpriteAction>,bool>> spActions;
+	vector<pair<pSpriteAction,bool>> spActions;
 	int state; // Is interpreted for now as a rectangle color. 0 for blue, 1 for red and 2 for green.
 public:
 	virtual ~Sprite() = default;
@@ -27,8 +27,10 @@ public:
 	pair<int, int> getSize();
 	void setState(int state);
 	int getState();
-	void addAction(unique_ptr<SpriteAction> &spActions);
-	vector<unique_ptr<FieldAction>> executeActions();
+	void addAction(pSpriteAction &spActions);
+	vector<pFieldAction> executeActions();
 	void executeNewActions();
-	vector<pair<unique_ptr<SpriteAction>,bool>> const& getActions() const;
+	vector<pair<pSpriteAction,bool>> const& getActions() const;
 };
+
+typedef std::unique_ptr<Sprite> pSprite;

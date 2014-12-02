@@ -8,6 +8,6 @@ class ColPlayerObstacle :
 public:
 	ColPlayerObstacle();
 
-	void collide(unique_ptr<Sprite>& sp1, unique_ptr<Sprite>& sp2, Field* target);
+	void collide(pSprite& sp1, pSprite& sp2, Field* target);
 	pair<SpriteType::Type, SpriteType::Type> getSignature() const;
 };

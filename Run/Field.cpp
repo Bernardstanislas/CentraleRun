@@ -2,9 +2,9 @@
 #include "SpAcFireProjectile.h"
 
 Field::Field() {
-	sprites = vector<unique_ptr<Sprite>>();
-	actions = vector<unique_ptr<FieldAction>>();
-	collisionHandler = unique_ptr<CollisionHandler>(new CollisionHandler(this));
+	sprites = vector<pSprite>();
+	actions = vector<pFieldAction>();
+	collisionHandler = pCollisionHandler(new CollisionHandler(this));
 
 	for (int h = 0; h < 2; h++)
 		for (int i = 0; i < SEQ_C0_COUNT; i++)
@@ -22,13 +22,13 @@ vector<TerrainGrid> Field::getSequence(int complexity)
 	return sequences[rand() % (2*SEQ_C0_COUNT)].second;
 }
 
-unique_ptr<Sprite> Field::MakeRegularBlock(TerrainGrid &block)
+pSprite Field::MakeRegularBlock(TerrainGrid &block)
 {
 	int y = block.begin()->first;
 	int x = block.begin()->second.begin()->first;
 	int height = block.size();
 	int width = block.begin()->second.size();
-	unique_ptr<Sprite> output = unique_ptr<SpObstacle>(new SpObstacle(width, height, x+WINDOW_BLOCK_WIDTH, y));
+	pSprite output = unique_ptr<SpObstacle>(new SpObstacle(width, height, x+WINDOW_BLOCK_WIDTH, y));
 	
 	char fireDirection = block.begin()->second.begin()->second.first;
 	if (fireDirection != 'X')
@@ -49,7 +49,7 @@ unique_ptr<Sprite> Field::MakeRegularBlock(TerrainGrid &block)
 			direction = Direction::RIGHT;
 			break;
 		}
-		unique_ptr<SpriteAction> fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile(direction, FRAMERATE/2));
+		pSpriteAction fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile(direction, FRAMERATE/2));
 		output->addAction(fire);
 	}
 	return move(output);
@@ -70,7 +70,7 @@ void Field::incSpeed()
 	speed++;
 }
 
-vector<unique_ptr<Sprite>> const& Field::getSprites() const
+vector<pSprite> const& Field::getSprites() const
 {
 	return sprites;
 }
@@ -84,13 +84,13 @@ vector<SpriteView> Field::getSpritesView()
 	return output;
 }
 
-void Field::addSprite(unique_ptr<Sprite> &sprite)
+void Field::addSprite(pSprite &sprite)
 {
 	// move gives ownership of the unique_ptr to the sprites vector
 	this->sprites.push_back(move(sprite));
 }
 
-void Field::deleteSprite(unique_ptr<Sprite> &sprite)
+void Field::deleteSprite(pSprite &sprite)
 {
 	this->sprites.erase(
 		remove(this->sprites.begin(), this->sprites.end(), sprite),
@@ -104,7 +104,7 @@ void Field::deleteOutOfBoundSprites()
 		remove_if(
 			this->sprites.begin(),
 			this->sprites.end(),
-			[](unique_ptr<Sprite> &sprite)
+			[](pSprite &sprite)
 			{
 				return sprite->getPosition().first + sprite->getSize().first < -10;
 			}
@@ -113,13 +113,13 @@ void Field::deleteOutOfBoundSprites()
 		);
 }
 
-void Field::addAction(unique_ptr<FieldAction> &action)
+void Field::addAction(pFieldAction &action)
 {
 	action->setTarget(this);
 	this->actions.push_back(move(action));
 }
 
-void Field::deleteAction(unique_ptr<FieldAction> &action)
+void Field::deleteAction(pFieldAction &action)
 {
 	this->actions.erase(
 		remove(this->actions.begin(), this->actions.end(), action),
@@ -148,7 +148,7 @@ void Field::executeSpriteActions()
 {
 	for (auto const& sprite : sprites)
 	{
-		vector<unique_ptr<FieldAction>> fieldActions = sprite->executeActions();
+		vector<pFieldAction> fieldActions = sprite->executeActions();
 
 		if (!fieldActions.empty()){
 

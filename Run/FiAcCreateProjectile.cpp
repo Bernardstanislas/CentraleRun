@@ -16,8 +16,8 @@ void FiAcCreateProjectile::execute()
 		state = 3;
 	else
 		state = 2;
-	unique_ptr<Sprite> newP = unique_ptr<SpProjectile>(new SpProjectile(x, y, state));
-	unique_ptr<SpriteAction> move = unique_ptr<SpAcMove>(new SpAcMove(10, direction));
+	pSprite newP = unique_ptr<SpProjectile>(new SpProjectile(x, y, state));
+	pSpriteAction move = unique_ptr<SpAcMove>(new SpAcMove(10, direction));
 	newP->addAction(move);
 	newP->executeNewActions();
 	target->addSprite(newP);

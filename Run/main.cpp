@@ -33,7 +33,7 @@ int main()
 				{
 					if (dynamic_cast<SpPlayer*>(sprite.get()) != nullptr)
 					{
-						unique_ptr<SpriteAction> saut = unique_ptr<SpAcJump>(new SpAcJump());
+						pSpriteAction saut = unique_ptr<SpAcJump>(new SpAcJump());
 						bool dont = false;
 						for (auto const& action : sprite->getActions())
 						{
@@ -54,7 +54,7 @@ int main()
 				{
 					if (dynamic_cast<SpPlayer*>(sprite.get()) != nullptr)
 					{
-						unique_ptr<SpriteAction> fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile());
+						pSpriteAction fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile());
 						bool dont = false;
 						for (auto const& action : sprite->getActions())
 						{
