@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include <iostream>
 
 void Sprite::setPosition(int x, int y)
 {
@@ -35,24 +36,22 @@ int Sprite::getState()
 void Sprite::addAction(unique_ptr<SpriteAction> &spAction)
 {
 	spAction->setSource(this);
-	this->spActions.push_back(move(spAction));
-}
-
-void Sprite::deleteAction(unique_ptr<SpriteAction> &spAction)
-{
-	this->spActions.erase(
-        std::remove(this->spActions.begin(), this->spActions.end(), spAction),
-        this->spActions.end());
+	spActions.push_back(make_pair(move(spAction),false));
 }
 
 vector<unique_ptr<FieldAction>> Sprite::executeActions()
-{	
+{
 	vector<unique_ptr<FieldAction>> fieldActions;
+
+	for (auto &action : spActions)
+	{
+		action.second = false;
+	}
 
 	auto spAction = spActions.begin();
 	while (spAction != spActions.end())
 	{
-		auto fAction = (*spAction)->execute();
+		auto fAction = spAction->first->execute();
 		// FieldAction generation if it exists (for CreateProjectile mostly)
 		if (fAction != nullptr)
 		{
@@ -60,8 +59,10 @@ vector<unique_ptr<FieldAction>> Sprite::executeActions()
 			fieldActions.push_back(move(fieldAction));
 		}
 		
+		spAction->second = true;
+
 		// Deleting action if it's over
-		if ((*spAction)->isOver())
+		if (spAction->first->isOver())
 			spAction = spActions.erase(spAction);
 		else
 			spAction++;
@@ -69,12 +70,29 @@ vector<unique_ptr<FieldAction>> Sprite::executeActions()
     return fieldActions; 
 }
 
-vector<unique_ptr<SpriteAction>> const& Sprite::getActions() const
+void Sprite::executeNewActions()
 {
-	return spActions;
+	auto spAction = spActions.begin();
+	while (spAction != spActions.end())
+	{
+		if (!spAction->second)
+		{
+			cout << "lol" << endl;
+ 			spAction->first->execute();
+			spAction->second = true;
+
+			// Deleting action if it's over
+			if (spAction->first->isOver())
+				spAction = spActions.erase(spAction);
+			else
+				spAction++;
+		}
+		else
+			spAction++;
+	}
 }
 
-unique_ptr<SpriteAction> const& Sprite::getAction(unique_ptr<SpriteAction> &action) const
+vector<pair<unique_ptr<SpriteAction>,bool>> const& Sprite::getActions() const
 {
-	return *find(spActions.begin(), spActions.end(), action);
+	return spActions;
 }
