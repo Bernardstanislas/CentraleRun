@@ -24,3 +24,8 @@ bool Action::isOver()
 {
 	return (elapsedTime >= duration && duration != -1);
 }
+
+void Action::incDuration()
+{
+	duration++
+}
