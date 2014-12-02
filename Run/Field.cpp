@@ -28,7 +28,7 @@ pSprite Field::MakeRegularBlock(TerrainGrid &block)
 	int x = block.begin()->second.begin()->first;
 	int height = block.size();
 	int width = block.begin()->second.size();
-	pSprite output = unique_ptr<SpObstacle>(new SpObstacle(width, height, x+WINDOW_BLOCK_WIDTH, y));
+	pSprite output = make_unique<SpObstacle>(width, height, x+WINDOW_BLOCK_WIDTH, y);
 	
 	char fireDirection = block.begin()->second.begin()->second.first;
 	if (fireDirection != 'X')
@@ -49,7 +49,7 @@ pSprite Field::MakeRegularBlock(TerrainGrid &block)
 			direction = Direction::RIGHT;
 			break;
 		}
-		pSpriteAction fire = unique_ptr<SpAcFireProjectile>(new SpAcFireProjectile(direction, FRAMERATE/2));
+		pSpriteAction fire = make_unique<SpAcFireProjectile>(direction, FRAMERATE/2);
 		output->addAction(fire);
 	}
 	return move(output);

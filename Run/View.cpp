@@ -18,12 +18,12 @@
 View::View(sf::RenderWindow &context) : context(context)
 {
 	// Sample data for testing
-	pSprite player = unique_ptr<SpPlayer>(new SpPlayer());
+	pSprite player = make_unique<SpPlayer>();
 	field.addSprite(player);
 
-	pFieldAction run = unique_ptr<FiAcMove>(new FiAcMove());
+	pFieldAction run = make_unique<FiAcMove>();
 	field.addAction(run);
-	pFieldAction generate = unique_ptr<FiAcGenerate>(new FiAcGenerate());
+	pFieldAction generate = make_unique<FiAcGenerate>();
 	field.addAction(generate);
 }
 
