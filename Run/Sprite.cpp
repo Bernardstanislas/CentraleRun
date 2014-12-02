@@ -77,7 +77,6 @@ void Sprite::executeNewActions()
 	{
 		if (!spAction->second)
 		{
-			cout << "lol" << endl;
  			spAction->first->execute();
 			spAction->second = true;
 
