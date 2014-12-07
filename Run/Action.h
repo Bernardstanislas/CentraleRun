@@ -9,9 +9,9 @@ protected:
 	int getDuration();
 	int getTime();
 	void incTime();
-	void incDuration();
 public:
 	Action(int duration = -1);
 	virtual ~Action() = default;
 	bool isOver();
+	void incDuration();
 };

@@ -16,6 +16,7 @@ int main()
 	View mainView(window);
 
 	SpPlayer* playerPointer;
+	int jumpDuration = 1;
 
 	for (auto &sprite : mainView.field.getSprites())
 	{
@@ -45,15 +46,22 @@ int main()
 					if (dynamic_cast<SpAcJump*>(action.get()) != nullptr)
 					{
 						dont = true;
+						jumpDuration = 1;
 						break;
 					}
 				}
 				if (!dont) playerPointer->addAction(saut);
 			}
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-				
-
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && jumpDuration <= MAX_JUMP_DURATION){
+				for (auto& action : playerPointer->getActions())
+				{
+					if (dynamic_cast<SpAcJump*>(action.get()) != nullptr)
+					{
+						action->incDuration();
+						jumpDuration++;
+					}
+				}
 			}
 
 			// Fire
