@@ -15,9 +15,18 @@ int main()
 
 	View mainView(window);
 
+	SpPlayer* playerPointer;
+
+	for (auto &sprite : mainView.field.getSprites())
+	{
+		if (dynamic_cast<SpPlayer*>(sprite.get()) != nullptr)  playerPointer = dynamic_cast<SpPlayer*>(sprite.get());
+	}
+
 	while (window.isOpen())
 	{
 		// Handle various events based on keyboards I/O
+		
+		window.setKeyRepeatEnabled(false);
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -29,45 +38,38 @@ int main()
 
 			// Jump
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space){
-				for (auto &sprite : mainView.field.getSprites())
+				pSpriteAction saut = make_unique<SpAcJump>();
+				bool dont = false;
+				for (auto const& action : playerPointer->getActions())
 				{
-					if (dynamic_cast<SpPlayer*>(sprite.get()) != nullptr)
+					if (dynamic_cast<SpAcJump*>(action.get()) != nullptr)
 					{
-						pSpriteAction saut = make_unique<SpAcJump>();
-						bool dont = false;
-						for (auto const& action : sprite->getActions())
-						{
-							if (dynamic_cast<SpAcJump*>(action.get()) != nullptr)
-							{
-								dont = true;
-								break;
-							}
-						}
-						if (!dont) sprite->addAction(saut);
+						dont = true;
+						break;
 					}
 				}
+				if (!dont) playerPointer->addAction(saut);
+			}
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+				
+
 			}
 
 			// Fire
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::E){
-				for (auto &sprite : mainView.field.getSprites())
+				pSpriteAction fire = make_unique<SpAcFireProjectile>();
+				bool dont = false;
+				for (auto const& action : playerPointer->getActions())
 				{
-					if (dynamic_cast<SpPlayer*>(sprite.get()) != nullptr)
+					if (dynamic_cast<SpAcFireProjectile*>(action.get()) != nullptr)
 					{
-						pSpriteAction fire = make_unique<SpAcFireProjectile>();
-						bool dont = false;
-						for (auto const& action : sprite->getActions())
-						{
-							if (dynamic_cast<SpAcFireProjectile*>(action.get()) != nullptr)
-							{
-								dont = true;
-								break;
-							}
-						}
-						if (!dont)
-							sprite->addAction(fire); 
+						dont = true;
+						break;
 					}
 				}
+				if (!dont)
+					playerPointer->addAction(fire); 
 			}
 		}
 
