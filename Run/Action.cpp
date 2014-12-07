@@ -27,5 +27,5 @@ bool Action::isOver()
 
 void Action::incDuration()
 {
-	duration++
+	duration++;
 }
