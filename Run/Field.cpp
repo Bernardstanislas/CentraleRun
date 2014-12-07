@@ -58,6 +58,13 @@ pSprite Field::MakeRegularBlock(TerrainGrid &block)
 	return move(output);
 }
 
+pSprite Field::MakeMovingBlock(TerrainGrid &block)
+{
+	pSprite output = make_unique<SpObstacle>(0,0,0,0);
+
+	return move(output);
+}
+
 int Field::getSpeed()
 {
 	return speed;
