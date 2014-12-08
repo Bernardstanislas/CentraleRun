@@ -1,190 +1,155 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Fichiers sources\Classes">
-      <UniqueIdentifier>{ea116b39-b20e-400a-b47a-053b0179c6fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Classes\Sprites">
-      <UniqueIdentifier>{fcc6968d-d19d-4cc8-ad05-c652f304de60}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Sprites">
-      <UniqueIdentifier>{01e1dfd2-fda3-488d-9691-69aa85956d3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Actions">
-      <UniqueIdentifier>{7308073e-7612-43ab-a1d9-bf73f66bd09f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Classes\Actions">
-      <UniqueIdentifier>{7c79708c-cb28-4637-8b01-5e0718a398f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Actions\FieldActions">
-      <UniqueIdentifier>{d7e62fbd-5350-4172-8046-5e7b4b2f966d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Classes\Actions\FieldActions">
-      <UniqueIdentifier>{ca55b644-8efa-46b1-8d2f-9b25ba6358ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Actions\SpriteActions">
-      <UniqueIdentifier>{89bb40ff-6797-4883-9316-4fdb43fd6225}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Classes\Actions\SpriteActions">
-      <UniqueIdentifier>{47883e01-41be-4ab6-a701-aa226b372339}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Classes\Collisions">
-      <UniqueIdentifier>{91cb8ca6-d81e-4aee-aa3a-fc1a2074eb09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Collisions">
-      <UniqueIdentifier>{84aabce8-f7e7-497d-a36e-6b03928267ab}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Terrain">
       <UniqueIdentifier>{3f25218b-11cb-4174-a387-d83d949bf594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{259d7d2d-96ef-4426-afe9-0fc467e95b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Actions">
+      <UniqueIdentifier>{7c79708c-cb28-4637-8b01-5e0718a398f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Sprites">
+      <UniqueIdentifier>{fcc6968d-d19d-4cc8-ad05-c652f304de60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Colliders">
+      <UniqueIdentifier>{91cb8ca6-d81e-4aee-aa3a-fc1a2074eb09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Actions\FieldActions">
+      <UniqueIdentifier>{ca55b644-8efa-46b1-8d2f-9b25ba6358ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Actions\SpriteActions">
+      <UniqueIdentifier>{47883e01-41be-4ab6-a701-aa226b372339}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Field.cpp">
-      <Filter>Fichiers sources\Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="SpProjectile.cpp">
-      <Filter>Fichiers sources\Classes\Sprites</Filter>
-    </ClCompile>
-    <ClCompile Include="SpPlayer.cpp">
-      <Filter>Fichiers sources\Classes\Sprites</Filter>
-    </ClCompile>
-    <ClCompile Include="SpObstacle.cpp">
-      <Filter>Fichiers sources\Classes\Sprites</Filter>
-    </ClCompile>
-    <ClCompile Include="SpBonus.cpp">
-      <Filter>Fichiers sources\Classes\Sprites</Filter>
-    </ClCompile>
-    <ClCompile Include="FiAcCreateProjectile.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
-    <ClCompile Include="FiAcGenerate.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
-    <ClCompile Include="FiAcMove.cpp">
-      <Filter>Fichiers sources\Classes\Actions\FieldActions</Filter>
-    </ClCompile>
-    <ClCompile Include="SpAcFireProjectile.cpp">
-      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
-    </ClCompile>
-    <ClCompile Include="SpAcJump.cpp">
-      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
-    </ClCompile>
-    <ClCompile Include="SpAcMove.cpp">
-      <Filter>Fichiers sources\Classes\Actions\SpriteActions</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Fichiers sources\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Action.cpp">
-      <Filter>Fichiers sources\Classes</Filter>
+      <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="CollisionHandler.cpp">
-      <Filter>Fichiers sources\Classes</Filter>
+      <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Field.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteAction.cpp">
-      <Filter>Fichiers sources\Classes\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="FieldAction.cpp">
-      <Filter>Fichiers sources\Classes\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="ColPlayerObstacle.cpp">
-      <Filter>Fichiers sources\Classes\Collisions</Filter>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="TerrainSequence.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="View.cpp" />
+    <ClCompile Include="ColPlayerObstacle.cpp">
+      <Filter>Classes\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="SpAcFireProjectile.cpp">
+      <Filter>Classes\Actions\SpriteActions</Filter>
+    </ClCompile>
+    <ClCompile Include="SpAcJump.cpp">
+      <Filter>Classes\Actions\SpriteActions</Filter>
+    </ClCompile>
+    <ClCompile Include="SpAcMove.cpp">
+      <Filter>Classes\Actions\SpriteActions</Filter>
+    </ClCompile>
+    <ClCompile Include="FiAcCreateProjectile.cpp">
+      <Filter>Classes\Actions\FieldActions</Filter>
+    </ClCompile>
+    <ClCompile Include="FiAcGenerate.cpp">
+      <Filter>Classes\Actions\FieldActions</Filter>
+    </ClCompile>
+    <ClCompile Include="FiAcMove.cpp">
+      <Filter>Classes\Actions\FieldActions</Filter>
+    </ClCompile>
+    <ClCompile Include="SpBonus.cpp">
+      <Filter>Classes\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="SpObstacle.cpp">
+      <Filter>Classes\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="SpPlayer.cpp">
+      <Filter>Classes\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="SpProjectile.cpp">
+      <Filter>Classes\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAction.cpp">
+      <Filter>Classes\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldAction.cpp">
+      <Filter>Classes\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Field.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FieldAction.h">
-      <Filter>Fichiers d%27en-tête\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteAction.h">
-      <Filter>Fichiers d%27en-tête\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="SpBonus.h">
-      <Filter>Fichiers d%27en-tête\Sprites</Filter>
-    </ClInclude>
-    <ClInclude Include="SpObstacle.h">
-      <Filter>Fichiers d%27en-tête\Sprites</Filter>
-    </ClInclude>
-    <ClInclude Include="SpPlayer.h">
-      <Filter>Fichiers d%27en-tête\Sprites</Filter>
-    </ClInclude>
-    <ClInclude Include="SpProjectile.h">
-      <Filter>Fichiers d%27en-tête\Sprites</Filter>
-    </ClInclude>
-    <ClInclude Include="FiAcCreateProjectile.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="FiAcGenerate.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="FiAcMove.h">
-      <Filter>Fichiers d%27en-tête\Actions\FieldActions</Filter>
-    </ClInclude>
-    <ClInclude Include="SpAcJump.h">
-      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
-    </ClInclude>
-    <ClInclude Include="SpAcFireProjectile.h">
-      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
-    </ClInclude>
-    <ClInclude Include="SpAcMove.h">
-      <Filter>Fichiers d%27en-tête\Actions\SpriteActions</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Action.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionHandler.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteType.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="ColPlayerObstacle.h">
-      <Filter>Fichiers d%27en-tête\Collisions</Filter>
-    </ClInclude>
-    <ClInclude Include="TerrainSequence.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Direction.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteType.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainSequence.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="ColPlayerObstacle.h">
+      <Filter>Classes\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h" />
+    <ClInclude Include="SpAcFireProjectile.h">
+      <Filter>Classes\Actions\SpriteActions</Filter>
+    </ClInclude>
+    <ClInclude Include="SpAcJump.h">
+      <Filter>Classes\Actions\SpriteActions</Filter>
+    </ClInclude>
+    <ClInclude Include="SpAcMove.h">
+      <Filter>Classes\Actions\SpriteActions</Filter>
+    </ClInclude>
+    <ClInclude Include="FiAcCreateProjectile.h">
+      <Filter>Classes\Actions\FieldActions</Filter>
+    </ClInclude>
+    <ClInclude Include="FiAcGenerate.h">
+      <Filter>Classes\Actions\FieldActions</Filter>
+    </ClInclude>
+    <ClInclude Include="SpBonus.h">
+      <Filter>Classes\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="SpObstacle.h">
+      <Filter>Classes\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="SpPlayer.h">
+      <Filter>Classes\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="SpProjectile.h">
+      <Filter>Classes\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAction.h">
+      <Filter>Classes\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldAction.h">
+      <Filter>Classes\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="FiAcMove.h">
+      <Filter>Classes\Actions\FieldActions</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="terrain0-0.txt">
