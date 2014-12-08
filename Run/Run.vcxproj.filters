@@ -52,15 +52,6 @@
     <Filter Include="Terrain">
       <UniqueIdentifier>{3f25218b-11cb-4174-a387-d83d949bf594}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Terrain\0">
-      <UniqueIdentifier>{65133020-bdb2-4f64-9f08-6c369dc4a1fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Terrain\5">
-      <UniqueIdentifier>{4385f17b-25dc-402e-9b26-efa54de8e2e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Terrain\1">
-      <UniqueIdentifier>{24967d09-07bb-4eb0-9c19-27149a2f6d27}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -208,32 +199,53 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="terrain5-1.txt">
-      <Filter>Terrain\5</Filter>
-    </Text>
     <Text Include="terrain0-0.txt">
-      <Filter>Terrain\0</Filter>
+      <Filter>Terrain</Filter>
     </Text>
     <Text Include="terrain0-1.txt">
-      <Filter>Terrain\0</Filter>
+      <Filter>Terrain</Filter>
     </Text>
     <Text Include="terrain0-2.txt">
-      <Filter>Terrain\0</Filter>
+      <Filter>Terrain</Filter>
     </Text>
     <Text Include="terrain0-3.txt">
-      <Filter>Terrain\0</Filter>
-    </Text>
-    <Text Include="terrain1-1.txt">
-      <Filter>Terrain\1</Filter>
-    </Text>
-    <Text Include="terrain1-2.txt">
-      <Filter>Terrain\1</Filter>
-    </Text>
-    <Text Include="terrain1-3.txt">
-      <Filter>Terrain\1</Filter>
+      <Filter>Terrain</Filter>
     </Text>
     <Text Include="terrain1-0.txt">
-      <Filter>Terrain\1</Filter>
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain1-1.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain1-2.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain1-3.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain2-0.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain3-3.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain2-1.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain2-2.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain2-3.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain3-0.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain3-1.txt">
+      <Filter>Terrain</Filter>
+    </Text>
+    <Text Include="terrain3-2.txt">
+      <Filter>Terrain</Filter>
     </Text>
   </ItemGroup>
 </Project>

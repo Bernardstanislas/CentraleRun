@@ -145,7 +145,14 @@
     <Text Include="terrain1-1.txt" />
     <Text Include="terrain1-2.txt" />
     <Text Include="terrain1-3.txt" />
-    <Text Include="terrain5-1.txt" />
+    <Text Include="terrain2-0.txt" />
+    <Text Include="terrain2-1.txt" />
+    <Text Include="terrain2-2.txt" />
+    <Text Include="terrain2-3.txt" />
+    <Text Include="terrain3-0.txt" />
+    <Text Include="terrain3-1.txt" />
+    <Text Include="terrain3-2.txt" />
+    <Text Include="terrain3-3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

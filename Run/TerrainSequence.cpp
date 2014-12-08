@@ -61,9 +61,11 @@ void TerrainSequence::FillData()
 		else
 			y++;
 	}
-
-	SubstractBlock(terrainData, regularBlocks);
-	MakeBlocks(regularBlocks);
+	if (regularBlocks.size() != 0)
+	{
+		SubstractBlock(terrainData, regularBlocks);
+		MakeBlocks(regularBlocks);
+	}
 
 	MakeMovingBlocks(terrainData);
 }
@@ -160,10 +162,15 @@ void TerrainSequence::MakeMovingBlocks(TerrainGrid &blocksData)
 
 void TerrainSequence::SubstractBlock(TerrainGrid &grid, TerrainGrid &block)
 {
+	PrintData(grid);
+	cout << endl;
+	PrintData(block);
 	auto blockY = block.begin();
 	auto gridY = grid.begin();
 	while (blockY != block.end())
 	{
+		while (gridY->first != blockY->first)
+			gridY++;
 		if (*gridY == *blockY)
 			grid.erase(gridY++);
 		else
@@ -175,6 +182,7 @@ void TerrainSequence::SubstractBlock(TerrainGrid &grid, TerrainGrid &block)
 				while (gridX->first != blockX->first)
 					gridX++;
 				gridY->second.erase(gridX++);
+				cout << "erase" << endl;
 				blockX++;
 			}
 			if (gridY->second.size() == 0)

@@ -8,11 +8,12 @@ Field::Field()
 	actions = vector<pFieldAction>();
 	collisionHandler = pCollisionHandler(new CollisionHandler(this));
 
-	for (int h = 0; h < 2; h++)
+	for (int h = 0; h < 4; h++)
 		for (int i = 0; i < SEQ_C0_COUNT; i++)
 		{
 			TerrainSequence seqTest;
 			seqTest.ParseFile("terrain" + to_string(h) + "-" + to_string(i) + ".txt");
+			cout << h << " " << i << endl;
 			seqTest.FillData();
 			sequences.push_back(make_pair(h, move(seqTest.getData())));
 		}
@@ -20,9 +21,8 @@ Field::Field()
 
 vector<TerrainGrid> Field::getSequence(int complexity)
 {
-	//int c = (complexity > 1) ? 1 : complexity;
-	//return sequences[rand() % ((c+1)*SEQ_C0_COUNT)].second;
-	return sequences[0].second;
+	int c = (complexity > 3) ? 3 : complexity;
+	return sequences[rand() % ((c+1)*SEQ_C0_COUNT)].second;
 }
 
 pSprite Field::MakeRegularBlock(TerrainGrid &block)
