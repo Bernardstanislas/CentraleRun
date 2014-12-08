@@ -81,15 +81,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Tests\CollisionHandlerTest.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\Tests\RunTests.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\Tests\SpriteTest.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="ColPlayerObstacle.cpp" />
@@ -164,7 +155,6 @@
     <Import Project="..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets" Condition="Exists('..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets')" />
     <Import Project="..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets" Condition="Exists('..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets')" />
     <Import Project="..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets" Condition="Exists('..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets')" />
-    <Import Project="..\packages\gtest.1.7.0.1\build\native\gtest.targets" Condition="Exists('..\packages\gtest.1.7.0.1\build\native\gtest.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -178,6 +168,5 @@
     <Error Condition="!Exists('..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets'))" />
     <Error Condition="!Exists('..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets'))" />
-    <Error Condition="!Exists('..\packages\gtest.1.7.0.1\build\native\gtest.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gtest.1.7.0.1\build\native\gtest.targets'))" />
   </Target>
 </Project>

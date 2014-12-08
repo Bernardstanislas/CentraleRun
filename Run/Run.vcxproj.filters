@@ -40,9 +40,6 @@
     <Filter Include="Fichiers sources\Classes\Actions\SpriteActions">
       <UniqueIdentifier>{47883e01-41be-4ab6-a701-aa226b372339}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Tests">
-      <UniqueIdentifier>{fb814ef0-3e70-46cd-b1d2-a6277307283b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\Classes\Collisions">
       <UniqueIdentifier>{91cb8ca6-d81e-4aee-aa3a-fc1a2074eb09}</UniqueIdentifier>
     </Filter>
@@ -110,15 +107,6 @@
     </ClCompile>
     <ClCompile Include="FieldAction.cpp">
       <Filter>Fichiers sources\Classes\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Tests\RunTests.cpp">
-      <Filter>Fichiers sources\Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Tests\SpriteTest.cpp">
-      <Filter>Fichiers sources\Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Tests\CollisionHandlerTest.cpp">
-      <Filter>Fichiers sources\Tests</Filter>
     </ClCompile>
     <ClCompile Include="ColPlayerObstacle.cpp">
       <Filter>Fichiers sources\Classes\Collisions</Filter>
