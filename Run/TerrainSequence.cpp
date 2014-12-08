@@ -162,9 +162,6 @@ void TerrainSequence::MakeMovingBlocks(TerrainGrid &blocksData)
 
 void TerrainSequence::SubstractBlock(TerrainGrid &grid, TerrainGrid &block)
 {
-	PrintData(grid);
-	cout << endl;
-	PrintData(block);
 	auto blockY = block.begin();
 	auto gridY = grid.begin();
 	while (blockY != block.end())
@@ -182,7 +179,6 @@ void TerrainSequence::SubstractBlock(TerrainGrid &grid, TerrainGrid &block)
 				while (gridX->first != blockX->first)
 					gridX++;
 				gridY->second.erase(gridX++);
-				cout << "erase" << endl;
 				blockX++;
 			}
 			if (gridY->second.size() == 0)

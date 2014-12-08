@@ -22,6 +22,9 @@
     <Filter Include="Classes\Actions\SpriteActions">
       <UniqueIdentifier>{47883e01-41be-4ab6-a701-aa226b372339}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{3c2c1be9-3e67-4adb-beaf-25e2898f1c47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -42,8 +45,6 @@
     <ClCompile Include="TerrainSequence.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="View.cpp" />
     <ClCompile Include="ColPlayerObstacle.cpp">
       <Filter>Classes\Colliders</Filter>
     </ClCompile>
@@ -83,6 +84,12 @@
     <ClCompile Include="FieldAction.cpp">
       <Filter>Classes\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h">
@@ -112,7 +119,6 @@
     <ClInclude Include="ColPlayerObstacle.h">
       <Filter>Classes\Colliders</Filter>
     </ClInclude>
-    <ClInclude Include="config.h" />
     <ClInclude Include="SpAcFireProjectile.h">
       <Filter>Classes\Actions\SpriteActions</Filter>
     </ClInclude>
@@ -149,7 +155,12 @@
     <ClInclude Include="FiAcMove.h">
       <Filter>Classes\Actions\FieldActions</Filter>
     </ClInclude>
-    <ClInclude Include="View.h" />
+    <ClInclude Include="config.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="terrain0-0.txt">

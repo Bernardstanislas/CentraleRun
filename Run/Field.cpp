@@ -13,7 +13,6 @@ Field::Field()
 		{
 			TerrainSequence seqTest;
 			seqTest.ParseFile("terrain" + to_string(h) + "-" + to_string(i) + ".txt");
-			cout << h << " " << i << endl;
 			seqTest.FillData();
 			sequences.push_back(make_pair(h, move(seqTest.getData())));
 		}
@@ -158,7 +157,10 @@ void Field::deleteOutOfBoundSprites()
 			this->sprites.end(),
 			[](pSprite &sprite)
 			{
-				return sprite->getPosition().first + sprite->getSize().first < -10;
+				return (sprite->getPosition().first + sprite->getSize().first < -10
+					|| sprite->getPosition().first > WINDOW_BLOCK_WIDTH + SEQUENCE_SIZE + 10
+					|| sprite->getPosition().second > WINDOW_BLOCK_HEIGHT + 5
+					|| sprite->getPosition().second < -5);
 			}
 		),
 		this->sprites.end()
