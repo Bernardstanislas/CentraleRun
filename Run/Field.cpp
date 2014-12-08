@@ -1,7 +1,9 @@
 #include "Field.h"
 #include "SpAcFireProjectile.h"
+#include "SpAcMove.h"
 
-Field::Field() {
+Field::Field() 
+{
 	sprites = vector<pSprite>();
 	actions = vector<pFieldAction>();
 	collisionHandler = pCollisionHandler(new CollisionHandler(this));
@@ -14,13 +16,13 @@ Field::Field() {
 			seqTest.FillData();
 			sequences.push_back(make_pair(h, move(seqTest.getData())));
 		}
-
 }
 
 vector<TerrainGrid> Field::getSequence(int complexity)
 {
-	int c = (complexity > 1) ? 1 : complexity;
-	return sequences[rand() % ((c+1)*SEQ_C0_COUNT)].second;
+	//int c = (complexity > 1) ? 1 : complexity;
+	//return sequences[rand() % ((c+1)*SEQ_C0_COUNT)].second;
+	return sequences[0].second;
 }
 
 pSprite Field::MakeRegularBlock(TerrainGrid &block)
@@ -60,8 +62,57 @@ pSprite Field::MakeRegularBlock(TerrainGrid &block)
 
 pSprite Field::MakeMovingBlock(TerrainGrid &block)
 {
-	pSprite output = make_unique<SpObstacle>(0,0,0,0);
+	auto movingBlock = block;
 
+	auto y = movingBlock.begin();
+	while (y != movingBlock.end())
+	{
+		auto x = y->second.begin();
+		while (x != y->second.end())
+		{
+			if (x->second.first == '+')
+				y->second.erase(x++);
+			else
+				x++;
+		}
+		if (y->second.size() == 0)
+			movingBlock.erase(y++);
+		else
+			y++;
+	}
+
+	auto output = MakeRegularBlock(movingBlock);
+	Direction direction;
+	bool isDirectionUp = false;
+	int loopTime = 0;
+
+	auto y2 = block.begin();
+	while (y2 != block.end())
+	{
+		if (y2->second.begin()->second.first == '+')
+		{
+			isDirectionUp = true;
+			loopTime++;
+		}
+		y2++;
+	}
+
+	if (isDirectionUp)
+		direction = Direction::UP;
+	else
+	{
+		direction = Direction::RIGHT;
+		auto x2 = block.begin()->second.begin();
+		while (x2 != block.begin()->second.end())
+		{
+			if (x2->second.first == '+')
+				loopTime++;
+			x2++;
+		}
+	}
+
+	pSpriteAction loopMove = make_unique<SpAcMove>(1, direction, loopTime);
+	output->addAction(loopMove);
 	return move(output);
 }
 

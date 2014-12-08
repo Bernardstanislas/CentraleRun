@@ -5,8 +5,8 @@
 #define VIEW_FRAMERATE 60
 #define FRAMERATE 10
 
-#define BASE_SPEED 2
-#define MAX_SPEED 4
+#define BASE_SPEED 3
+#define MAX_SPEED 3
 
 #define PROJECTILE_SPEED 8
 
