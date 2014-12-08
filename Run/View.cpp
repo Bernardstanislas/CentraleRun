@@ -41,8 +41,8 @@ void View::draw()
 		pair<int, int> size = sprite->getSize();
 		int state = sprite->getState();
 
-		float width = size.first * blockSize;
-		float height = size.second * blockSize;
+		float width = (float)size.first * blockSize;
+		float height = (float)size.second * blockSize;
 
 		// Our block origin is bottom-left corner and SMFL's is top-left.
 		float x = (pos.first + (npos.first - pos.first) * (float)frameSkip / FRAMESKIP) * blockSize;
@@ -61,10 +61,12 @@ void View::draw()
 		case 2:
 			shape.setFillColor(sf::Color::Red);
 			shape.setSize(sf::Vector2f(shape.getSize().x, shape.getSize().y / 4));
+			shape.setPosition(sf::Vector2f(shape.getPosition().x, shape.getPosition().y + 3 * blockSize / 8));
 			break;
 		case 3:
 			shape.setFillColor(sf::Color::Red);
 			shape.setSize(sf::Vector2f(shape.getSize().x / 4, shape.getSize().y));
+			shape.setPosition(sf::Vector2f(shape.getPosition().x + 3 * blockSize / 8, shape.getPosition().y));
 			break;
 		case 4:
 			shape.setFillColor(sf::Color::Red);
