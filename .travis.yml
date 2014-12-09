@@ -1,15 +1,6 @@
 language: cpp
 compiler:
   - gcc
-notifications:
-  recipients:
-    - stanislas.bernard@student.ecp.fr
-    - robin.moisson@student.ecp.fr
-    - damien.frikha@student.ecp.fr
-    - thierry.colsenet@student.ecp.fr
-  email:
-    on_success: change
-    on_failure: always
 install:
   - sh ./install.sh
 script:
