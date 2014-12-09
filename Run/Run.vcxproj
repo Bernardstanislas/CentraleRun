@@ -39,7 +39,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <NuGetPackageImportStamp>0181a462</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>36233768</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -81,15 +81,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Tests\CollisionHandlerTest.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\Tests\RunTests.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\Tests\SpriteTest.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="ColPlayerObstacle.cpp" />
@@ -145,7 +136,14 @@
     <Text Include="terrain1-1.txt" />
     <Text Include="terrain1-2.txt" />
     <Text Include="terrain1-3.txt" />
-    <Text Include="terrain5-1.txt" />
+    <Text Include="terrain2-0.txt" />
+    <Text Include="terrain2-1.txt" />
+    <Text Include="terrain2-2.txt" />
+    <Text Include="terrain2-3.txt" />
+    <Text Include="terrain3-0.txt" />
+    <Text Include="terrain3-1.txt" />
+    <Text Include="terrain3-2.txt" />
+    <Text Include="terrain3-3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -157,7 +155,6 @@
     <Import Project="..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets" Condition="Exists('..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets')" />
     <Import Project="..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets" Condition="Exists('..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets')" />
     <Import Project="..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets" Condition="Exists('..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets')" />
-    <Import Project="..\packages\gtest.1.7.0.1\build\native\gtest.targets" Condition="Exists('..\packages\gtest.1.7.0.1\build\native\gtest.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -171,6 +168,5 @@
     <Error Condition="!Exists('..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-graphics.2.1.0.0\build\native\sfml-graphics.targets'))" />
     <Error Condition="!Exists('..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-audio.redist.2.1.0.0\build\native\sfml-audio.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml-audio.2.1.0.0\build\native\sfml-audio.targets'))" />
-    <Error Condition="!Exists('..\packages\gtest.1.7.0.1\build\native\gtest.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gtest.1.7.0.1\build\native\gtest.targets'))" />
   </Target>
 </Project>

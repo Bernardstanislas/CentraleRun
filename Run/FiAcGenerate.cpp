@@ -15,8 +15,16 @@ void FiAcGenerate::createSequence()
 {
 	for (auto obstacle : target->getSequence(complexity))
 	{
-		auto sp = target->MakeRegularBlock(obstacle);
-		target->addSprite(sp);
+		if (obstacle.begin()->second.begin()->second.second == 'X')
+		{
+			auto sp = target->MakeRegularBlock(obstacle);
+			target->addSprite(sp);
+		}
+		else
+		{
+			auto sp = target->MakeMovingBlock(obstacle);
+			target->addSprite(sp);
+		}
 	}
 }
 

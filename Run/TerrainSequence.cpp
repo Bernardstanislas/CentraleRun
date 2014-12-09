@@ -29,6 +29,16 @@ void TerrainSequence::ParseFile(string path)
 		}
 		file.close();
 	}
+
+	// Cleaning empty lines
+	auto y = terrainData.begin();
+	while (y != terrainData.end())
+	{
+		if (y->second.size() == 0)
+			terrainData.erase(y++);
+		else
+			y++;
+	}
 }
 
 void TerrainSequence::FillData()
@@ -41,7 +51,7 @@ void TerrainSequence::FillData()
 		auto x = y->second.begin();
 		while (x != y->second.end())
 		{
-			if (x->second.second != 'X' || x->second.first == '+')
+			if (x->second.second != 'X')
 				x = y->second.erase(x);
 			else
 				x++;
@@ -51,8 +61,13 @@ void TerrainSequence::FillData()
 		else
 			y++;
 	}
+	if (regularBlocks.size() != 0)
+	{
+		SubstractBlock(terrainData, regularBlocks);
+		MakeBlocks(regularBlocks);
+	}
 
-	MakeBlocks(regularBlocks);
+	MakeMovingBlocks(terrainData);
 }
 
 void TerrainSequence::MakeBlocks(TerrainGrid &blocksData)
@@ -111,29 +126,65 @@ void TerrainSequence::MakeBlocks(TerrainGrid &blocksData)
 	}
 }
 
+void TerrainSequence::MakeMovingBlocks(TerrainGrid &blocksData)
+{
+	TerrainGrid block;
+	int blockNumber = 0;
+
+	while (blocksData.size() > 0)
+	{
+		block = blocksData;
+
+		auto y = block.begin();
+		while (y != block.end())
+		{
+			auto x = y->second.begin();
+			while (x != y->second.end())
+			{
+				if (x->second.second != (char)blockNumber)
+					y->second.erase(x++);
+				else
+					x++;
+			}
+			if (y->second.size() == 0)
+				block.erase(y++);
+			else
+				y++;
+		}
+		if (block.size() != 0)
+		{
+			SubstractBlock(blocksData, block);
+			blockList.push_back(block);
+		}
+		blockNumber++;
+	}
+}
+
 void TerrainSequence::SubstractBlock(TerrainGrid &grid, TerrainGrid &block)
 {
 	auto blockY = block.begin();
 	auto gridY = grid.begin();
 	while (blockY != block.end())
 	{
+		while (gridY->first != blockY->first)
+			gridY++;
 		if (*gridY == *blockY)
 			grid.erase(gridY++);
 		else
 		{
 			auto blockX = blockY->second.begin();
 			auto gridX = gridY->second.begin();
-			while (gridX->first != blockX->first)
-				gridX++;
 			while (blockX != blockY->second.end())
 			{
-				if (*gridX == *blockX)
-					gridY->second.erase(gridX++);
-				else
+				while (gridX->first != blockX->first)
 					gridX++;
+				gridY->second.erase(gridX++);
 				blockX++;
 			}
-			gridY++;
+			if (gridY->second.size() == 0)
+				grid.erase(gridY++);
+			else
+				gridY++;
 		}
 		blockY++;
 	}

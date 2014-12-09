@@ -22,6 +22,7 @@ public:
 	void PrintData(TerrainGrid &data);
 	void FillData();
 	void MakeBlocks(TerrainGrid &blocksData);
+	void MakeMovingBlocks(TerrainGrid &blocksData);
 	
 	void SubstractBlock(TerrainGrid &grid, TerrainGrid &block);
 	vector<TerrainGrid> getData();

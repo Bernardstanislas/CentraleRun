@@ -26,6 +26,7 @@ public:
 	
 	vector<TerrainGrid> getSequence(int complexity);
 	pSprite MakeRegularBlock(TerrainGrid &block);
+	pSprite MakeMovingBlock(TerrainGrid &block);
 
 	int getSpeed();
 	void setSpeed(int speed);

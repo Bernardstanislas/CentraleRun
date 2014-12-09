@@ -9,7 +9,7 @@ SpAcMove::SpAcMove(unsigned int speed, Direction direction, int loopTime) : spee
 
 FieldAction* SpAcMove::execute()
 {
-	if (loopTime != 0 && getTime() % loopTime == 0)
+	if (loopTime != 0 && getTime() != 0 && getTime() % loopTime == 0)
 	{
 		switch (direction)
 		{
@@ -49,7 +49,6 @@ FieldAction* SpAcMove::execute()
 	}
 
 	source->setNPosition(newX, newY);
-	
 	incTime();
 
 	return nullptr;
